@@ -1,0 +1,68 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /sync-link
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sync_link_db1
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc.lob.non_contextual_creation: true
+    show-sql: true
+
+  jackson:
+    serialization:
+      indent_output: true
+
+# ============================================================
+# 🔐 JWT SECURITY CONFIGURATION
+# ============================================================
+sync:
+  security:
+    jwt:
+      secret: ${JWT_SECRET:bG9uZy1yYW5kb20tc2VjdXJlLWtleS1mb3ItamF2YS1zdHJpbmctand0LWVuY29kaW5nLTQ2Nzg5MA==}
+      expiration-minutes: 60
+
+# ============================================================
+# 🌍 CORS CONFIGURATION
+# ============================================================
+cors:
+  allowed-origins: "http://localhost:3000,http://127.0.0.1:3000"
+
+# ============================================================
+# 📘 SWAGGER / SPRINGDOC CONFIGURATION
+# ============================================================
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
+    use-root-path: true
+
+
+# ============================================================
+# 🪵 LOGGING CONFIGURATION
+# ============================================================
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+    org.hibernate.orm.jdbc.bind: TRACE
+    com.synclink: DEBUG
+  file:
+    name: logs/sync-link.log
