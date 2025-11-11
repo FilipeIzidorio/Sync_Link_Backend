@@ -3,15 +3,12 @@ package com.synclink.application.dto;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
 public class CategoriaDTO {
 
     private Long id;
 
-    @NotBlank(message = "Nome é obrigatório")
+    @NotBlank(message = "O nome é obrigatório")
     private String nome;
 
     private String descricao;

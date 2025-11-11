@@ -22,4 +22,92 @@ public class PedidoFinalizadoDTO {
     private LocalDateTime dataFechamento;
     private String nomeCliente;
     private String documentoCliente;
+
+    public Long getPedidoId() {
+        return pedidoId;
+    }
+
+    public void setPedidoId(Long pedidoId) {
+        this.pedidoId = pedidoId;
+    }
+
+    public Long getMesaId() {
+        return mesaId;
+    }
+
+    public void setMesaId(Long mesaId) {
+        this.mesaId = mesaId;
+    }
+
+    public Integer getMesaNumero() {
+        return mesaNumero;
+    }
+
+    public void setMesaNumero(Integer mesaNumero) {
+        this.mesaNumero = mesaNumero;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
+    }
+
+    public BigDecimal getValorPago() {
+        return valorPago;
+    }
+
+    public void setValorPago(BigDecimal valorPago) {
+        this.valorPago = valorPago;
+    }
+
+    public BigDecimal getTroco() {
+        return troco;
+    }
+
+    public void setTroco(BigDecimal troco) {
+        this.troco = troco;
+    }
+
+    public FormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
+
+    public String getCodigoTransacao() {
+        return codigoTransacao;
+    }
+
+    public void setCodigoTransacao(String codigoTransacao) {
+        this.codigoTransacao = codigoTransacao;
+    }
+
+    public LocalDateTime getDataFechamento() {
+        return dataFechamento;
+    }
+
+    public void setDataFechamento(LocalDateTime dataFechamento) {
+        this.dataFechamento = dataFechamento;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public String getDocumentoCliente() {
+        return documentoCliente;
+    }
+
+    public void setDocumentoCliente(String documentoCliente) {
+        this.documentoCliente = documentoCliente;
+    }
 }

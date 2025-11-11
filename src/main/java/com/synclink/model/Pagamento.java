@@ -1,21 +1,19 @@
 package com.synclink.model;
 
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "pagamentos")
-@Data
-@Builder
+@Getter
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Pagamento {
 
     @Id
@@ -28,20 +26,23 @@ public class Pagamento {
     private Pedido pedido;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 30)
     private FormaPagamento formaPagamento;
 
     @NotNull
-    @Column(precision = 10, scale = 2, nullable = false)
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal valor;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
+    @Builder.Default
     private StatusPagamento status = StatusPagamento.PENDENTE;
 
+    @Column(name = "codigo_transacao", length = 80)
     private String codigoTransacao;
 
     @Column(name = "data_criacao", nullable = false)
+    @Builder.Default
     private LocalDateTime dataCriacao = LocalDateTime.now();
 
     @Column(name = "data_confirmacao")
@@ -52,55 +53,134 @@ public class Pagamento {
     @Column(name = "numero_parcelas")
     private Integer numeroParcelas = 1;
 
-    @Column(name = "bandeira_cartao")
+    @Column(name = "bandeira_cartao", length = 30)
     private String bandeiraCartao;
 
-    @Column(name = "ultimos_digitos_cartao")
+    @Column(name = "ultimos_digitos_cartao", length = 4)
     private String ultimosDigitosCartao;
 
-    // Construtores
-    public Pagamento() {}
+    // ===========================
+    // Métodos de Negócio
+    // ===========================
 
-    public Pagamento(Pedido pedido, FormaPagamento formaPagamento, BigDecimal valor) {
+    public boolean isAprovado() {
+        return this.status == StatusPagamento.APROVADO;
+    }
+
+    public boolean isPendente() {
+        return this.status == StatusPagamento.PENDENTE;
+    }
+
+    public void confirmar() {
+        this.status = StatusPagamento.APROVADO;
+        this.dataConfirmacao = LocalDateTime.now();
+    }
+
+    public void estornar(String motivo) {
+        this.status = StatusPagamento.ESTORNADO;
+        this.observacao = (this.observacao != null ? this.observacao + " | " : "")
+                + "Estorno: " + motivo;
+    }
+
+    public void recusar(String motivo) {
+        this.status = StatusPagamento.RECUSADO;
+        this.observacao = (this.observacao != null ? this.observacao + " | " : "")
+                + "Recusado: " + motivo;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
         this.pedido = pedido;
+    }
+
+    public FormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
         this.formaPagamento = formaPagamento;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 
-    // Getters e Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public StatusPagamento getStatus() {
+        return status;
+    }
 
-    public Pedido getPedido() { return pedido; }
-    public void setPedido(Pedido pedido) { this.pedido = pedido; }
+    public void setStatus(StatusPagamento status) {
+        this.status = status;
+    }
 
-    public FormaPagamento getFormaPagamento() { return formaPagamento; }
-    public void setFormaPagamento(FormaPagamento formaPagamento) { this.formaPagamento = formaPagamento; }
+    public String getCodigoTransacao() {
+        return codigoTransacao;
+    }
 
-    public BigDecimal getValor() { return valor; }
-    public void setValor(BigDecimal valor) { this.valor = valor; }
+    public void setCodigoTransacao(String codigoTransacao) {
+        this.codigoTransacao = codigoTransacao;
+    }
 
-    public StatusPagamento getStatus() { return status; }
-    public void setStatus(StatusPagamento status) { this.status = status; }
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
+    }
 
-    public String getCodigoTransacao() { return codigoTransacao; }
-    public void setCodigoTransacao(String codigoTransacao) { this.codigoTransacao = codigoTransacao; }
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
 
-    public LocalDateTime getDataCriacao() { return dataCriacao; }
-    public void setDataCriacao(LocalDateTime dataCriacao) { this.dataCriacao = dataCriacao; }
+    public LocalDateTime getDataConfirmacao() {
+        return dataConfirmacao;
+    }
 
-    public LocalDateTime getDataConfirmacao() { return dataConfirmacao; }
-    public void setDataConfirmacao(LocalDateTime dataConfirmacao) { this.dataConfirmacao = dataConfirmacao; }
+    public void setDataConfirmacao(LocalDateTime dataConfirmacao) {
+        this.dataConfirmacao = dataConfirmacao;
+    }
 
-    public String getObservacao() { return observacao; }
-    public void setObservacao(String observacao) { this.observacao = observacao; }
+    public String getObservacao() {
+        return observacao;
+    }
 
-    public Integer getNumeroParcelas() { return numeroParcelas; }
-    public void setNumeroParcelas(Integer numeroParcelas) { this.numeroParcelas = numeroParcelas; }
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
 
-    public String getBandeiraCartao() { return bandeiraCartao; }
-    public void setBandeiraCartao(String bandeiraCartao) { this.bandeiraCartao = bandeiraCartao; }
+    public Integer getNumeroParcelas() {
+        return numeroParcelas;
+    }
 
-    public String getUltimosDigitosCartao() { return ultimosDigitosCartao; }
-    public void setUltimosDigitosCartao(String ultimosDigitosCartao) { this.ultimosDigitosCartao = ultimosDigitosCartao; }
+    public void setNumeroParcelas(Integer numeroParcelas) {
+        this.numeroParcelas = numeroParcelas;
+    }
+
+    public String getBandeiraCartao() {
+        return bandeiraCartao;
+    }
+
+    public void setBandeiraCartao(String bandeiraCartao) {
+        this.bandeiraCartao = bandeiraCartao;
+    }
+
+    public String getUltimosDigitosCartao() {
+        return ultimosDigitosCartao;
+    }
+
+    public void setUltimosDigitosCartao(String ultimosDigitosCartao) {
+        this.ultimosDigitosCartao = ultimosDigitosCartao;
+    }
 }

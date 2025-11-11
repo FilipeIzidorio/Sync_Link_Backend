@@ -9,24 +9,72 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Schema(description = "DTO para mesa")
+@Schema(description = "DTO que representa uma mesa do restaurante")
 public class MesaDTO {
 
     private Long id;
 
-    @Schema(description = "Número da mesa", example = "1")
     @NotNull
+    @Schema(description = "Número identificador da mesa", example = "12")
     private Integer numero;
 
-    @Schema(description = "Status da mesa")
+    @Schema(description = "Status atual da mesa", example = "OCUPADA")
     private StatusMesa status;
 
-    @Schema(description = "Descrição da mesa")
+    @Schema(description = "Descrição da mesa (ex: área externa)")
     private String descricao;
 
-    @Schema(description = "Indica se tem pedido ativo")
+    @Schema(description = "Indica se a mesa possui pedido ativo")
     private Boolean temPedidoAtivo;
 
-    @Schema(description = "ID do pedido ativo")
+    @Schema(description = "ID do pedido ativo, caso exista")
     private Long pedidoAtivoId;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public StatusMesa getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusMesa status) {
+        this.status = status;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Boolean getTemPedidoAtivo() {
+        return temPedidoAtivo;
+    }
+
+    public void setTemPedidoAtivo(Boolean temPedidoAtivo) {
+        this.temPedidoAtivo = temPedidoAtivo;
+    }
+
+    public Long getPedidoAtivoId() {
+        return pedidoAtivoId;
+    }
+
+    public void setPedidoAtivoId(Long pedidoAtivoId) {
+        this.pedidoAtivoId = pedidoAtivoId;
+    }
 }

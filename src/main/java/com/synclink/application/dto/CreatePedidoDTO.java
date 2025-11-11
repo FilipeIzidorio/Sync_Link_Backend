@@ -22,9 +22,20 @@ public class CreatePedidoDTO {
     }
 
     // Getters e Setters
-    public Long getMesaId() { return mesaId; }
-    public void setMesaId(Long mesaId) { this.mesaId = mesaId; }
 
-    public String getObservacao() { return observacao; }
-    public void setObservacao(String observacao) { this.observacao = observacao; }
+    public Long getMesaId() {
+        return mesaId;
+    }
+
+    public void setMesaId(Long mesaId) {
+        this.mesaId = mesaId;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
 }

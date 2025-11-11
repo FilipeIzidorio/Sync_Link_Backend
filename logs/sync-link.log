@@ -1530,3 +1530,1619 @@ java.lang.RuntimeException: Token inválido.
 2025-11-11T15:30:06.417-03:00 TRACE 9624 --- [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ADMIN]
 2025-11-11T15:30:06.442-03:00  INFO 9624 --- [restartedMain] com.synclink.DataInitializer             : ✅ Usuário admin já existe no banco de dados
 2025-11-11T15:31:06.183-03:00  INFO 9624 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-11T15:45:08.954-03:00  INFO 9624 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-11T15:45:09.021-03:00  INFO 9624 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-11T15:45:09.274-03:00  INFO 9624 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 251 ms
+2025-11-11T15:45:16.009-03:00  INFO 9624 --- [http-nio-8081-exec-10] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 4909 ms
+2025-11-11T15:45:42.946-03:00 DEBUG 9624 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T15:45:42.954-03:00 TRACE 9624 --- [http-nio-8081-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T15:46:38.374-03:00 DEBUG 9624 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T15:46:38.374-03:00 TRACE 9624 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T15:46:38.386-03:00 DEBUG 9624 --- [http-nio-8081-exec-9] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T15:46:38.545-03:00  WARN 9624 --- [http-nio-8081-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [jakarta.validation.ConstraintViolationException: Validation failed for classes [com.synclink.model.Categoria] during persist time for groups [jakarta.validation.groups.Default, ]<EOL>List of constraint violations:[<EOL>?ConstraintViolationImpl{interpolatedMessage='não deve estar em branco', propertyPath=nome, rootBeanClass=class com.synclink.model.Categoria, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}<EOL>]]
+2025-11-11T16:01:06.337-03:00  INFO 9624 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 0, completed tasks = 1]
+2025-11-11T16:06:52.377-03:00 DEBUG 9624 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2025-11-11T16:06:52.463-03:00 TRACE 9624 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [joao@synclink.com]
+2025-11-11T16:06:52.463-03:00 TRACE 9624 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2025-11-11T16:06:53.412-03:00 DEBUG 9624 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        usuarios
+        (ativo, data_atualizacao, data_criacao, email, nome, perfil, senha) 
+    values
+        (?, ?, ?, ?, ?, ?, ?) 
+    returning id
+2025-11-11T16:06:53.476-03:00 TRACE 9624 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2025-11-11T16:06:53.476-03:00 TRACE 9624 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (2:TIMESTAMP) <- [null]
+2025-11-11T16:06:53.476-03:00 TRACE 9624 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2025-11-11T16:06:52.743598200]
+2025-11-11T16:06:53.512-03:00 TRACE 9624 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) <- [joao@synclink.com]
+2025-11-11T16:06:53.512-03:00 TRACE 9624 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [João Silva]
+2025-11-11T16:06:53.512-03:00 TRACE 9624 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [GARCOM]
+2025-11-11T16:06:53.512-03:00 TRACE 9624 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [$2a$10$BCQetPSDDZAw5KKwJrqxCeD6Y5RZa/ULFRxekJ5CRHj1UwiiPBV6e]
+2025-11-11T16:09:33.082-03:00 DEBUG 9624 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:09:33.088-03:00 TRACE 9624 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:09:33.111-03:00 DEBUG 9624 --- [http-nio-8081-exec-8] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:09:33.225-03:00 DEBUG 9624 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.descricao,
+        c1_0.nome 
+    from
+        categorias c1_0
+2025-11-11T16:09:52.038-03:00 DEBUG 9624 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:09:52.038-03:00 TRACE 9624 --- [http-nio-8081-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:09:52.057-03:00 DEBUG 9624 --- [http-nio-8081-exec-3] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:09:52.100-03:00  WARN 9624 --- [http-nio-8081-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [jakarta.validation.ConstraintViolationException: Validation failed for classes [com.synclink.model.Categoria] during persist time for groups [jakarta.validation.groups.Default, ]<EOL>List of constraint violations:[<EOL>?ConstraintViolationImpl{interpolatedMessage='não deve estar em branco', propertyPath=nome, rootBeanClass=class com.synclink.model.Categoria, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}<EOL>]]
+2025-11-11T16:09:57.217-03:00 DEBUG 9624 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:09:57.219-03:00 TRACE 9624 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:09:57.236-03:00 DEBUG 9624 --- [http-nio-8081-exec-6] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:09:57.251-03:00  WARN 9624 --- [http-nio-8081-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [jakarta.validation.ConstraintViolationException: Validation failed for classes [com.synclink.model.Categoria] during persist time for groups [jakarta.validation.groups.Default, ]<EOL>List of constraint violations:[<EOL>?ConstraintViolationImpl{interpolatedMessage='não deve estar em branco', propertyPath=nome, rootBeanClass=class com.synclink.model.Categoria, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}<EOL>]]
+2025-11-11T16:15:02.941-03:00  INFO 9624 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-11-11T16:15:02.979-03:00  INFO 9624 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@75af5422]]
+2025-11-11T16:15:02.983-03:00  INFO 9624 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-11-11T16:15:03.476-03:00  INFO 9624 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:15:03.686-03:00  INFO 9624 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-11T16:15:03.778-03:00  INFO 9624 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-11T16:15:56.506-03:00  INFO 3132 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Starting SyncLinkBackendApplication using Java 23.0.2 with PID 3132 (E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend\target\classes started by Filipe in E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend)
+2025-11-11T16:15:56.569-03:00 DEBUG 3132 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-11-11T16:15:56.571-03:00  INFO 3132 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-11T16:15:56.716-03:00  INFO 3132 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-11T16:15:56.717-03:00  INFO 3132 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-11T16:16:01.337-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11T16:16:01.534-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 176 ms. Found 9 JPA repository interfaces.
+2025-11-11T16:16:03.677-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-11T16:16:03.706-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-11T16:16:03.707-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-11T16:16:03.790-03:00  INFO 3132 --- [restartedMain] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring embedded WebApplicationContext
+2025-11-11T16:16:03.791-03:00  INFO 3132 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7072 ms
+2025-11-11T16:16:04.549-03:00  INFO 3132 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11T16:16:04.657-03:00  INFO 3132 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-11T16:16:04.722-03:00  INFO 3132 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-11T16:16:05.287-03:00  INFO 3132 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11T16:16:05.341-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-11T16:16:05.809-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@54b5a70c
+2025-11-11T16:16:05.810-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-11T16:16:05.966-03:00 DEBUG 3132 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@7050bc0b) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@45481571)
+2025-11-11T16:16:05.966-03:00 DEBUG 3132 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3d29ec36) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@506a5df6)
+2025-11-11T16:16:07.731-03:00  INFO 3132 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11T16:16:07.880-03:00 DEBUG 3132 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists categorias 
+       add column atualizado_em timestamp(6)
+2025-11-11T16:16:07.898-03:00 DEBUG 3132 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists categorias 
+       add column criado_em timestamp(6)
+2025-11-11T16:16:08.085-03:00  INFO 3132 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:16:08.732-03:00 DEBUG 3132 --- [restartedMain] c.s.i.security.JwtAuthFilter             : Filter 'jwtAuthFilter' configured for use
+2025-11-11T16:16:08.999-03:00  INFO 3132 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-11T16:16:09.001-03:00  WARN 3132 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-11-11T16:16:09.252-03:00  INFO 3132 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-11T16:16:11.095-03:00  WARN 3132 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11T16:16:11.843-03:00  INFO 3132 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-11T16:16:12.428-03:00  WARN 3132 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'handlerExceptionResolver' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Failed to instantiate [org.springframework.web.servlet.HandlerExceptionResolver]: Factory method 'handlerExceptionResolver' threw exception with message: Ambiguous @ExceptionHandler method mapped for [class java.lang.RuntimeException]: {public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleRuntime(java.lang.RuntimeException), public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleRuntimeException(java.lang.RuntimeException,org.springframework.web.context.request.WebRequest)}
+2025-11-11T16:16:12.434-03:00  INFO 3132 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:16:12.439-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-11T16:16:12.460-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-11T16:16:12.465-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-11-11T16:16:12.519-03:00  INFO 3132 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-11T16:16:12.554-03:00 ERROR 3132 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'handlerExceptionResolver' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Failed to instantiate [org.springframework.web.servlet.HandlerExceptionResolver]: Factory method 'handlerExceptionResolver' threw exception with message: Ambiguous @ExceptionHandler method mapped for [class java.lang.RuntimeException]: {public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleRuntime(java.lang.RuntimeException), public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleRuntimeException(java.lang.RuntimeException,org.springframework.web.context.request.WebRequest)}
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.4.jar:3.3.4]
+	at com.synclink.SyncLinkBackendApplication.main(SyncLinkBackendApplication.java:11) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.4.jar:3.3.4]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerExceptionResolver]: Factory method 'handlerExceptionResolver' threw exception with message: Ambiguous @ExceptionHandler method mapped for [class java.lang.RuntimeException]: {public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleRuntime(java.lang.RuntimeException), public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleRuntimeException(java.lang.RuntimeException,org.springframework.web.context.request.WebRequest)}
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:178) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644) ~[spring-beans-6.1.13.jar:6.1.13]
+	... 22 common frames omitted
+Caused by: java.lang.IllegalStateException: Ambiguous @ExceptionHandler method mapped for [class java.lang.RuntimeException]: {public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleRuntime(java.lang.RuntimeException), public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleRuntimeException(java.lang.RuntimeException,org.springframework.web.context.request.WebRequest)}
+	at org.springframework.web.method.annotation.ExceptionHandlerMethodResolver.addExceptionMapping(ExceptionHandlerMethodResolver.java:114) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.annotation.ExceptionHandlerMethodResolver.<init>(ExceptionHandlerMethodResolver.java:78) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.initExceptionHandlerAdviceCache(ExceptionHandlerExceptionResolver.java:289) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.afterPropertiesSet(ExceptionHandlerExceptionResolver.java:256) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.addDefaultHandlerExceptionResolvers(WebMvcConfigurationSupport.java:1063) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.handlerExceptionResolver(WebMvcConfigurationSupport.java:1005) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146) ~[spring-beans-6.1.13.jar:6.1.13]
+	... 23 common frames omitted
+
+2025-11-11T16:17:00.626-03:00  INFO 10448 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Starting SyncLinkBackendApplication using Java 23.0.2 with PID 10448 (E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend\target\classes started by Filipe in E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend)
+2025-11-11T16:17:00.661-03:00 DEBUG 10448 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-11-11T16:17:00.667-03:00  INFO 10448 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-11T16:17:00.845-03:00  INFO 10448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-11T16:17:00.846-03:00  INFO 10448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-11T16:17:04.927-03:00  INFO 10448 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11T16:17:05.237-03:00  INFO 10448 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 267 ms. Found 9 JPA repository interfaces.
+2025-11-11T16:17:07.363-03:00  INFO 10448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-11T16:17:07.394-03:00  INFO 10448 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-11T16:17:07.394-03:00  INFO 10448 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-11T16:17:07.518-03:00  INFO 10448 --- [restartedMain] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring embedded WebApplicationContext
+2025-11-11T16:17:07.519-03:00  INFO 10448 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6672 ms
+2025-11-11T16:17:08.268-03:00  INFO 10448 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11T16:17:08.403-03:00  INFO 10448 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-11T16:17:08.484-03:00  INFO 10448 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-11T16:17:09.116-03:00  INFO 10448 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11T16:17:09.171-03:00  INFO 10448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-11T16:17:09.593-03:00  INFO 10448 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@68efd850
+2025-11-11T16:17:09.595-03:00  INFO 10448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-11T16:17:09.786-03:00 DEBUG 10448 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@3dc2b856) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@1a2a6460)
+2025-11-11T16:17:09.788-03:00 DEBUG 10448 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@810fb3e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@4cbe6fa6)
+2025-11-11T16:17:12.393-03:00  INFO 10448 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11T16:17:12.673-03:00  INFO 10448 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:17:13.474-03:00 DEBUG 10448 --- [restartedMain] c.s.i.security.JwtAuthFilter             : Filter 'jwtAuthFilter' configured for use
+2025-11-11T16:17:13.735-03:00  INFO 10448 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-11T16:17:13.736-03:00  WARN 10448 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-11-11T16:17:14.100-03:00  INFO 10448 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-11T16:17:16.525-03:00  WARN 10448 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11T16:17:17.629-03:00  INFO 10448 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-11T16:17:17.997-03:00  WARN 10448 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'handlerExceptionResolver' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Failed to instantiate [org.springframework.web.servlet.HandlerExceptionResolver]: Factory method 'handlerExceptionResolver' threw exception with message: Ambiguous @ExceptionHandler method mapped for [class org.springframework.web.bind.MethodArgumentNotValidException]: {public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleValidation(org.springframework.web.bind.MethodArgumentNotValidException), public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleValidationExceptions(org.springframework.web.bind.MethodArgumentNotValidException)}
+2025-11-11T16:17:18.007-03:00  INFO 10448 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:17:18.012-03:00  INFO 10448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-11T16:17:18.029-03:00  INFO 10448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-11T16:17:18.049-03:00  INFO 10448 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-11-11T16:17:18.093-03:00  INFO 10448 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-11T16:17:18.127-03:00 ERROR 10448 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'handlerExceptionResolver' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Failed to instantiate [org.springframework.web.servlet.HandlerExceptionResolver]: Factory method 'handlerExceptionResolver' threw exception with message: Ambiguous @ExceptionHandler method mapped for [class org.springframework.web.bind.MethodArgumentNotValidException]: {public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleValidation(org.springframework.web.bind.MethodArgumentNotValidException), public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleValidationExceptions(org.springframework.web.bind.MethodArgumentNotValidException)}
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.4.jar:3.3.4]
+	at com.synclink.SyncLinkBackendApplication.main(SyncLinkBackendApplication.java:11) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.4.jar:3.3.4]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerExceptionResolver]: Factory method 'handlerExceptionResolver' threw exception with message: Ambiguous @ExceptionHandler method mapped for [class org.springframework.web.bind.MethodArgumentNotValidException]: {public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleValidation(org.springframework.web.bind.MethodArgumentNotValidException), public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleValidationExceptions(org.springframework.web.bind.MethodArgumentNotValidException)}
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:178) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644) ~[spring-beans-6.1.13.jar:6.1.13]
+	... 22 common frames omitted
+Caused by: java.lang.IllegalStateException: Ambiguous @ExceptionHandler method mapped for [class org.springframework.web.bind.MethodArgumentNotValidException]: {public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleValidation(org.springframework.web.bind.MethodArgumentNotValidException), public org.springframework.http.ResponseEntity com.synclink.exception.GlobalExceptionHandler.handleValidationExceptions(org.springframework.web.bind.MethodArgumentNotValidException)}
+	at org.springframework.web.method.annotation.ExceptionHandlerMethodResolver.addExceptionMapping(ExceptionHandlerMethodResolver.java:114) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.annotation.ExceptionHandlerMethodResolver.<init>(ExceptionHandlerMethodResolver.java:78) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.initExceptionHandlerAdviceCache(ExceptionHandlerExceptionResolver.java:289) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.afterPropertiesSet(ExceptionHandlerExceptionResolver.java:256) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.addDefaultHandlerExceptionResolvers(WebMvcConfigurationSupport.java:1063) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.handlerExceptionResolver(WebMvcConfigurationSupport.java:1005) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146) ~[spring-beans-6.1.13.jar:6.1.13]
+	... 23 common frames omitted
+
+2025-11-11T16:19:53.496-03:00  INFO 10056 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Starting SyncLinkBackendApplication using Java 23.0.2 with PID 10056 (E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend\target\classes started by Filipe in E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend)
+2025-11-11T16:19:53.499-03:00 DEBUG 10056 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-11-11T16:19:53.500-03:00  INFO 10056 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-11T16:19:53.698-03:00  INFO 10056 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-11T16:19:53.698-03:00  INFO 10056 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-11T16:19:58.893-03:00  INFO 10056 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11T16:19:59.244-03:00  INFO 10056 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 335 ms. Found 9 JPA repository interfaces.
+2025-11-11T16:20:02.508-03:00  INFO 10056 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-11T16:20:02.539-03:00  INFO 10056 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-11T16:20:02.540-03:00  INFO 10056 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-11T16:20:02.646-03:00  INFO 10056 --- [restartedMain] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring embedded WebApplicationContext
+2025-11-11T16:20:02.647-03:00  INFO 10056 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8948 ms
+2025-11-11T16:20:03.382-03:00  INFO 10056 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11T16:20:03.480-03:00  INFO 10056 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-11T16:20:03.524-03:00  INFO 10056 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-11T16:20:03.881-03:00  INFO 10056 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11T16:20:03.923-03:00  INFO 10056 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-11T16:20:04.386-03:00  INFO 10056 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6331d86b
+2025-11-11T16:20:04.389-03:00  INFO 10056 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-11T16:20:04.583-03:00 DEBUG 10056 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@59884860) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@603eb50b)
+2025-11-11T16:20:04.583-03:00 DEBUG 10056 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@4b8f6300) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@797e2d6c)
+2025-11-11T16:20:06.598-03:00  INFO 10056 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11T16:20:06.910-03:00  INFO 10056 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:20:07.603-03:00 DEBUG 10056 --- [restartedMain] c.s.i.security.JwtAuthFilter             : Filter 'jwtAuthFilter' configured for use
+2025-11-11T16:20:07.760-03:00  INFO 10056 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-11T16:20:07.762-03:00  WARN 10056 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-11-11T16:20:08.142-03:00  INFO 10056 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-11T16:20:10.340-03:00  WARN 10056 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11T16:20:11.079-03:00  INFO 10056 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-11T16:20:11.959-03:00  INFO 10056 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-11T16:20:12.079-03:00  INFO 10056 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/sync-link'
+2025-11-11T16:20:12.081-03:00  INFO 10056 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-11-11T16:20:12.082-03:00  INFO 10056 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@47c25a7a]]
+2025-11-11T16:20:12.082-03:00  INFO 10056 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-11-11T16:20:12.104-03:00  INFO 10056 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Started SyncLinkBackendApplication in 19.775 seconds (process running for 21.548)
+2025-11-11T16:20:12.469-03:00 DEBUG 10056 --- [restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.perfil=?
+2025-11-11T16:20:12.473-03:00 TRACE 10056 --- [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ADMIN]
+2025-11-11T16:20:12.493-03:00  INFO 10056 --- [restartedMain] com.synclink.DataInitializer             : ✅ Usuário admin já existe no banco de dados
+2025-11-11T16:20:25.486-03:00  INFO 10056 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-11T16:20:25.487-03:00  INFO 10056 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-11T16:20:25.490-03:00  INFO 10056 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-11-11T16:20:30.648-03:00  INFO 10056 --- [http-nio-8081-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 4329 ms
+2025-11-11T16:20:51.234-03:00 DEBUG 10056 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:20:51.237-03:00 TRACE 10056 --- [http-nio-8081-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:21:12.023-03:00  INFO 10056 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-11T16:21:26.881-03:00 DEBUG 10056 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:21:26.883-03:00 TRACE 10056 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:21:26.893-03:00 DEBUG 10056 --- [http-nio-8081-exec-8] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:21:26.919-03:00 DEBUG 10056 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        c1_0.id 
+    from
+        categorias c1_0 
+    where
+        upper(c1_0.nome)=upper(?) 
+    fetch
+        first ? rows only
+2025-11-11T16:21:26.920-03:00 TRACE 10056 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [bebida]
+2025-11-11T16:21:26.921-03:00 TRACE 10056 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2025-11-11T16:21:26.984-03:00 DEBUG 10056 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        categorias
+        (ativo, atualizado_em, criado_em, descricao, nome) 
+    values
+        (?, ?, ?, ?, ?) 
+    returning id
+2025-11-11T16:21:26.986-03:00 TRACE 10056 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2025-11-11T16:21:26.988-03:00 TRACE 10056 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (2:TIMESTAMP) <- [2025-11-11T16:21:26.970958]
+2025-11-11T16:21:26.991-03:00 TRACE 10056 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2025-11-11T16:21:26.970958]
+2025-11-11T16:21:26.991-03:00 TRACE 10056 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) <- [refri]
+2025-11-11T16:21:26.991-03:00 TRACE 10056 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [bebida]
+2025-11-11T16:22:45.480-03:00 DEBUG 10056 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:22:45.486-03:00 TRACE 10056 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:22:45.486-03:00 DEBUG 10056 --- [http-nio-8081-exec-1] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:22:45.535-03:00 DEBUG 10056 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.ativo,
+        p1_0.categoria_id,
+        p1_0.data_atualizacao,
+        p1_0.data_criacao,
+        p1_0.descricao,
+        p1_0.nome,
+        p1_0.preco 
+    from
+        produtos p1_0 
+    where
+        p1_0.ativo=?
+2025-11-11T16:22:45.541-03:00 TRACE 10056 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2025-11-11T16:23:52.198-03:00 DEBUG 10056 --- [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:23:52.198-03:00 TRACE 10056 --- [http-nio-8081-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:23:52.213-03:00 DEBUG 10056 --- [http-nio-8081-exec-2] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:23:52.638-03:00  WARN 10056 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [jakarta.validation.ConstraintViolationException: Validation failed for classes [com.synclink.model.Produto] during persist time for groups [jakarta.validation.groups.Default, ]<EOL>List of constraint violations:[<EOL>?ConstraintViolationImpl{interpolatedMessage='não deve ser nulo', propertyPath=preco, rootBeanClass=class com.synclink.model.Produto, messageTemplate='{jakarta.validation.constraints.NotNull.message}'}<EOL>?ConstraintViolationImpl{interpolatedMessage='não deve estar em branco', propertyPath=nome, rootBeanClass=class com.synclink.model.Produto, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}<EOL>]]
+2025-11-11T16:24:07.419-03:00 DEBUG 10056 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:24:07.419-03:00 TRACE 10056 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:24:07.437-03:00 DEBUG 10056 --- [http-nio-8081-exec-10] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:24:07.446-03:00  WARN 10056 --- [http-nio-8081-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [jakarta.validation.ConstraintViolationException: Validation failed for classes [com.synclink.model.Produto] during persist time for groups [jakarta.validation.groups.Default, ]<EOL>List of constraint violations:[<EOL>?ConstraintViolationImpl{interpolatedMessage='não deve estar em branco', propertyPath=nome, rootBeanClass=class com.synclink.model.Produto, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}<EOL>?ConstraintViolationImpl{interpolatedMessage='não deve ser nulo', propertyPath=preco, rootBeanClass=class com.synclink.model.Produto, messageTemplate='{jakarta.validation.constraints.NotNull.message}'}<EOL>]]
+2025-11-11T16:35:30.539-03:00  INFO 10056 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-11-11T16:35:30.626-03:00  INFO 10056 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@47c25a7a]]
+2025-11-11T16:35:30.632-03:00  INFO 10056 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-11-11T16:35:31.296-03:00  INFO 10056 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:35:31.760-03:00  INFO 10056 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-11T16:35:31.955-03:00  INFO 10056 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-11T16:41:22.206-03:00  INFO 11832 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Starting SyncLinkBackendApplication using Java 23.0.2 with PID 11832 (E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend\target\classes started by Filipe in E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend)
+2025-11-11T16:41:22.229-03:00 DEBUG 11832 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-11-11T16:41:22.230-03:00  INFO 11832 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-11T16:41:22.418-03:00  INFO 11832 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-11T16:41:22.418-03:00  INFO 11832 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-11T16:41:26.307-03:00  INFO 11832 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11T16:41:26.503-03:00  INFO 11832 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 185 ms. Found 9 JPA repository interfaces.
+2025-11-11T16:41:28.455-03:00  INFO 11832 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-11T16:41:28.483-03:00  INFO 11832 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-11T16:41:28.484-03:00  INFO 11832 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-11T16:41:28.596-03:00  INFO 11832 --- [restartedMain] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring embedded WebApplicationContext
+2025-11-11T16:41:28.597-03:00  INFO 11832 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6178 ms
+2025-11-11T16:41:29.392-03:00  INFO 11832 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11T16:41:29.510-03:00  INFO 11832 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-11T16:41:29.579-03:00  INFO 11832 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-11T16:41:30.147-03:00  INFO 11832 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11T16:41:30.193-03:00  INFO 11832 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-11T16:41:30.568-03:00  INFO 11832 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3af944ee
+2025-11-11T16:41:30.571-03:00  INFO 11832 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-11T16:41:30.743-03:00 DEBUG 11832 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@46c7f834) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@203eb406)
+2025-11-11T16:41:30.744-03:00 DEBUG 11832 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2a80eb02) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@12788d78)
+2025-11-11T16:41:33.385-03:00  INFO 11832 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11T16:41:33.711-03:00  INFO 11832 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:41:34.572-03:00 DEBUG 11832 --- [restartedMain] c.s.i.security.JwtAuthFilter             : Filter 'jwtAuthFilter' configured for use
+2025-11-11T16:41:34.719-03:00  INFO 11832 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-11T16:41:34.721-03:00  WARN 11832 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-11-11T16:41:35.154-03:00  INFO 11832 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-11T16:41:37.246-03:00  WARN 11832 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11T16:41:38.157-03:00  INFO 11832 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-11T16:41:39.481-03:00  INFO 11832 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-11T16:41:39.665-03:00  INFO 11832 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/sync-link'
+2025-11-11T16:41:39.668-03:00  INFO 11832 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-11-11T16:41:39.669-03:00  INFO 11832 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@43d10f39]]
+2025-11-11T16:41:39.670-03:00  INFO 11832 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-11-11T16:41:39.720-03:00  INFO 11832 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Started SyncLinkBackendApplication in 18.547 seconds (process running for 19.703)
+2025-11-11T16:41:41.070-03:00 DEBUG 11832 --- [restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.perfil=?
+2025-11-11T16:41:41.074-03:00 TRACE 11832 --- [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ADMIN]
+2025-11-11T16:41:41.107-03:00  INFO 11832 --- [restartedMain] com.synclink.DataInitializer             : ✅ Usuário admin já existe no banco de dados
+2025-11-11T16:41:48.428-03:00  INFO 11832 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-11T16:41:48.428-03:00  INFO 11832 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-11T16:41:48.432-03:00  INFO 11832 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2025-11-11T16:41:48.602-03:00 DEBUG 11832 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:41:48.602-03:00 TRACE 11832 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:41:48.621-03:00 DEBUG 11832 --- [http-nio-8081-exec-1] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:41:48.830-03:00  WARN 11832 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/produtos.]
+2025-11-11T16:41:51.766-03:00 DEBUG 11832 --- [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:41:51.766-03:00 TRACE 11832 --- [http-nio-8081-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:41:51.793-03:00 DEBUG 11832 --- [http-nio-8081-exec-2] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:41:51.801-03:00  WARN 11832 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/produtos.]
+2025-11-11T16:42:07.577-03:00  INFO 11832 --- [http-nio-8081-exec-1] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 9784 ms
+2025-11-11T16:42:30.765-03:00 DEBUG 11832 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:42:30.765-03:00 TRACE 11832 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:42:39.584-03:00  INFO 11832 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-11T16:43:17.741-03:00 DEBUG 11832 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:43:17.754-03:00 TRACE 11832 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:43:17.854-03:00 DEBUG 11832 --- [http-nio-8081-exec-10] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:43:18.370-03:00 DEBUG 11832 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        p1_0.id 
+    from
+        produtos p1_0 
+    where
+        p1_0.nome=? 
+        and p1_0.categoria_id=? 
+    fetch
+        first ? rows only
+2025-11-11T16:43:18.372-03:00 TRACE 11832 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [coca lata]
+2025-11-11T16:43:18.373-03:00 TRACE 11832 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [1]
+2025-11-11T16:43:18.373-03:00 TRACE 11832 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (3:INTEGER) <- [1]
+2025-11-11T16:43:18.852-03:00 DEBUG 11832 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    insert 
+    into
+        produtos
+        (ativo, categoria_id, data_atualizacao, data_criacao, descricao, nome, preco) 
+    values
+        (?, ?, ?, ?, ?, ?, ?) 
+    returning id
+2025-11-11T16:43:18.868-03:00 TRACE 11832 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2025-11-11T16:43:18.868-03:00 TRACE 11832 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [null]
+2025-11-11T16:43:18.868-03:00 TRACE 11832 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [null]
+2025-11-11T16:43:18.868-03:00 TRACE 11832 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP) <- [2025-11-11T16:43:18.408624]
+2025-11-11T16:43:18.868-03:00 TRACE 11832 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [350ml]
+2025-11-11T16:43:18.868-03:00 TRACE 11832 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [coca lata]
+2025-11-11T16:43:18.868-03:00 TRACE 11832 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (7:NUMERIC) <- [5.9]
+2025-11-11T16:43:18.968-03:00  WARN 11832 --- [http-nio-8081-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23502
+2025-11-11T16:43:18.968-03:00 ERROR 11832 --- [http-nio-8081-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERRO: o valor nulo na coluna "categoria_id" da relação "produtos" viola a restrição de não-nulo
+  Detalhe: Registro que falhou contém (1, t, null, 2025-11-11 16:43:18.408624, 350ml, coca lata, 5.90, null).
+2025-11-11T16:43:19.075-03:00  WARN 11832 --- [http-nio-8081-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERRO: o valor nulo na coluna "categoria_id" da relação "produtos" viola a restrição de não-nulo<EOL>  Detalhe: Registro que falhou contém (1, t, null, 2025-11-11 16:43:18.408624, 350ml, coca lata, 5.90, null).] [insert into produtos (ativo,categoria_id,data_atualizacao,data_criacao,descricao,nome,preco) values (?,?,?,?,?,?,?) returning id]; SQL [insert into produtos (ativo,categoria_id,data_atualizacao,data_criacao,descricao,nome,preco) values (?,?,?,?,?,?,?) returning id]; constraint [null]]
+2025-11-11T16:43:35.064-03:00 DEBUG 11832 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:43:35.064-03:00 TRACE 11832 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:43:35.083-03:00 DEBUG 11832 --- [http-nio-8081-exec-9] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:43:35.083-03:00 DEBUG 11832 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        p1_0.id 
+    from
+        produtos p1_0 
+    where
+        p1_0.nome=? 
+        and p1_0.categoria_id=? 
+    fetch
+        first ? rows only
+2025-11-11T16:43:35.083-03:00 TRACE 11832 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [coca lata]
+2025-11-11T16:43:35.083-03:00 TRACE 11832 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [1]
+2025-11-11T16:43:35.083-03:00 TRACE 11832 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (3:INTEGER) <- [1]
+2025-11-11T16:43:35.083-03:00 DEBUG 11832 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    insert 
+    into
+        produtos
+        (ativo, categoria_id, data_atualizacao, data_criacao, descricao, nome, preco) 
+    values
+        (?, ?, ?, ?, ?, ?, ?) 
+    returning id
+2025-11-11T16:43:35.094-03:00 TRACE 11832 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2025-11-11T16:43:35.094-03:00 TRACE 11832 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [null]
+2025-11-11T16:43:35.095-03:00 TRACE 11832 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [null]
+2025-11-11T16:43:35.095-03:00 TRACE 11832 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP) <- [2025-11-11T16:43:35.083903600]
+2025-11-11T16:43:35.096-03:00 TRACE 11832 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [350ml]
+2025-11-11T16:43:35.096-03:00 TRACE 11832 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [coca lata]
+2025-11-11T16:43:35.096-03:00 TRACE 11832 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (7:NUMERIC) <- [5.9]
+2025-11-11T16:43:35.097-03:00  WARN 11832 --- [http-nio-8081-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23502
+2025-11-11T16:43:35.099-03:00 ERROR 11832 --- [http-nio-8081-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERRO: o valor nulo na coluna "categoria_id" da relação "produtos" viola a restrição de não-nulo
+  Detalhe: Registro que falhou contém (2, t, null, 2025-11-11 16:43:35.083904, 350ml, coca lata, 5.90, null).
+2025-11-11T16:43:35.100-03:00  WARN 11832 --- [http-nio-8081-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERRO: o valor nulo na coluna "categoria_id" da relação "produtos" viola a restrição de não-nulo<EOL>  Detalhe: Registro que falhou contém (2, t, null, 2025-11-11 16:43:35.083904, 350ml, coca lata, 5.90, null).] [insert into produtos (ativo,categoria_id,data_atualizacao,data_criacao,descricao,nome,preco) values (?,?,?,?,?,?,?) returning id]; SQL [insert into produtos (ativo,categoria_id,data_atualizacao,data_criacao,descricao,nome,preco) values (?,?,?,?,?,?,?) returning id]; constraint [null]]
+2025-11-11T16:44:23.299-03:00  INFO 11832 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-11-11T16:44:23.314-03:00  INFO 11832 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@43d10f39]]
+2025-11-11T16:44:23.315-03:00  INFO 11832 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-11-11T16:44:23.596-03:00  INFO 11832 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:44:23.748-03:00  INFO 11832 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-11T16:44:23.833-03:00  INFO 11832 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-11T16:44:37.577-03:00  INFO 16200 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Starting SyncLinkBackendApplication using Java 23.0.2 with PID 16200 (E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend\target\classes started by Filipe in E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend)
+2025-11-11T16:44:37.580-03:00 DEBUG 16200 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-11-11T16:44:37.582-03:00  INFO 16200 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-11T16:44:37.741-03:00  INFO 16200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-11T16:44:37.741-03:00  INFO 16200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-11T16:44:41.379-03:00  INFO 16200 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11T16:44:41.532-03:00  INFO 16200 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 131 ms. Found 9 JPA repository interfaces.
+2025-11-11T16:44:43.203-03:00  INFO 16200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-11T16:44:43.225-03:00  INFO 16200 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-11T16:44:43.225-03:00  INFO 16200 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-11T16:44:43.324-03:00  INFO 16200 --- [restartedMain] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring embedded WebApplicationContext
+2025-11-11T16:44:43.325-03:00  INFO 16200 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5582 ms
+2025-11-11T16:44:43.993-03:00  INFO 16200 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11T16:44:44.112-03:00  INFO 16200 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-11T16:44:44.180-03:00  INFO 16200 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-11T16:44:44.709-03:00  INFO 16200 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11T16:44:44.770-03:00  INFO 16200 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-11T16:44:45.429-03:00  INFO 16200 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5d73f4f0
+2025-11-11T16:44:45.431-03:00  INFO 16200 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-11T16:44:45.579-03:00 DEBUG 16200 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@1de16aa) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@6385d07b)
+2025-11-11T16:44:45.580-03:00 DEBUG 16200 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@518a9844) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@10a9efff)
+2025-11-11T16:44:47.348-03:00  INFO 16200 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11T16:44:47.594-03:00  INFO 16200 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:44:48.445-03:00 DEBUG 16200 --- [restartedMain] c.s.i.security.JwtAuthFilter             : Filter 'jwtAuthFilter' configured for use
+2025-11-11T16:44:48.628-03:00  INFO 16200 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-11T16:44:48.629-03:00  WARN 16200 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-11-11T16:44:49.107-03:00  INFO 16200 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-11T16:44:51.887-03:00  WARN 16200 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11T16:44:52.578-03:00  INFO 16200 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-11T16:44:53.480-03:00  INFO 16200 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-11T16:44:53.593-03:00  INFO 16200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/sync-link'
+2025-11-11T16:44:53.595-03:00  INFO 16200 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-11-11T16:44:53.596-03:00  INFO 16200 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6b44efdd]]
+2025-11-11T16:44:53.597-03:00  INFO 16200 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-11-11T16:44:53.622-03:00  INFO 16200 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Started SyncLinkBackendApplication in 16.99 seconds (process running for 17.972)
+2025-11-11T16:44:53.959-03:00 DEBUG 16200 --- [restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.perfil=?
+2025-11-11T16:44:53.962-03:00 TRACE 16200 --- [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ADMIN]
+2025-11-11T16:44:53.982-03:00  INFO 16200 --- [restartedMain] com.synclink.DataInitializer             : ✅ Usuário admin já existe no banco de dados
+2025-11-11T16:45:53.550-03:00  INFO 16200 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-11T16:46:01.791-03:00  INFO 16200 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-11T16:46:01.791-03:00  INFO 16200 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-11T16:46:01.809-03:00  INFO 16200 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 18 ms
+2025-11-11T16:46:02.085-03:00 DEBUG 16200 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:46:02.087-03:00 TRACE 16200 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:46:02.142-03:00 DEBUG 16200 --- [http-nio-8081-exec-1] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:46:02.485-03:00  WARN 16200 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource sync-link/api/produtos.]
+2025-11-11T16:50:21.981-03:00  INFO 16200 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-11-11T16:50:22.032-03:00  INFO 16200 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6b44efdd]]
+2025-11-11T16:50:22.034-03:00  INFO 16200 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-11-11T16:50:22.608-03:00  INFO 16200 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:50:22.853-03:00  INFO 16200 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-11T16:50:22.981-03:00  INFO 16200 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-11T16:50:33.610-03:00  INFO 8272 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Starting SyncLinkBackendApplication using Java 23.0.2 with PID 8272 (E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend\target\classes started by Filipe in E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend)
+2025-11-11T16:50:33.614-03:00 DEBUG 8272 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-11-11T16:50:33.615-03:00  INFO 8272 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-11T16:50:33.784-03:00  INFO 8272 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-11T16:50:33.785-03:00  INFO 8272 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-11T16:50:37.191-03:00  INFO 8272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11T16:50:37.373-03:00  INFO 8272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 161 ms. Found 9 JPA repository interfaces.
+2025-11-11T16:50:39.300-03:00  INFO 8272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-11T16:50:39.337-03:00  INFO 8272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-11T16:50:39.338-03:00  INFO 8272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-11T16:50:39.423-03:00  INFO 8272 --- [restartedMain] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring embedded WebApplicationContext
+2025-11-11T16:50:39.423-03:00  INFO 8272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5638 ms
+2025-11-11T16:50:40.179-03:00  INFO 8272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11T16:50:40.311-03:00  INFO 8272 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-11T16:50:40.378-03:00  INFO 8272 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-11T16:50:41.026-03:00  INFO 8272 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11T16:50:41.078-03:00  INFO 8272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-11T16:50:41.555-03:00  INFO 8272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2f5bf8c5
+2025-11-11T16:50:41.558-03:00  INFO 8272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-11T16:50:41.711-03:00 DEBUG 8272 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@2a80eb02) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@12788d78)
+2025-11-11T16:50:41.712-03:00 DEBUG 8272 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6b07c15b) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3eccc6b9)
+2025-11-11T16:50:43.641-03:00  INFO 8272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11T16:50:43.918-03:00  INFO 8272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:50:44.653-03:00 DEBUG 8272 --- [restartedMain] c.s.i.security.JwtAuthFilter             : Filter 'jwtAuthFilter' configured for use
+2025-11-11T16:50:44.828-03:00  INFO 8272 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-11T16:50:44.829-03:00  WARN 8272 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-11-11T16:50:45.105-03:00  INFO 8272 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-11T16:50:46.995-03:00  WARN 8272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11T16:50:47.701-03:00  INFO 8272 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-11T16:50:48.689-03:00  INFO 8272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-11T16:50:48.828-03:00  INFO 8272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/sync-link'
+2025-11-11T16:50:48.831-03:00  INFO 8272 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-11-11T16:50:48.832-03:00  INFO 8272 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1bea2a13]]
+2025-11-11T16:50:48.832-03:00  INFO 8272 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-11-11T16:50:48.857-03:00  INFO 8272 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Started SyncLinkBackendApplication in 16.118 seconds (process running for 17.294)
+2025-11-11T16:50:49.217-03:00 DEBUG 8272 --- [restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.perfil=?
+2025-11-11T16:50:49.220-03:00 TRACE 8272 --- [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ADMIN]
+2025-11-11T16:50:49.242-03:00  INFO 8272 --- [restartedMain] com.synclink.DataInitializer             : ✅ Usuário admin já existe no banco de dados
+2025-11-11T16:51:02.648-03:00  INFO 8272 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-11T16:51:02.648-03:00  INFO 8272 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-11T16:51:02.655-03:00  INFO 8272 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2025-11-11T16:51:07.478-03:00  INFO 8272 --- [http-nio-8081-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 4049 ms
+2025-11-11T16:51:48.755-03:00  INFO 8272 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-11T16:52:22.251-03:00 DEBUG 8272 --- [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:52:22.253-03:00 TRACE 8272 --- [http-nio-8081-exec-7] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:52:38.774-03:00 DEBUG 8272 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:52:38.774-03:00 TRACE 8272 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:52:38.787-03:00 DEBUG 8272 --- [http-nio-8081-exec-8] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:52:38.820-03:00  INFO 8272 --- [http-nio-8081-exec-8] c.s.a.controller.ProdutoController       : Criando novo produto: coca lata
+2025-11-11T16:52:38.838-03:00 DEBUG 8272 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        p1_0.id 
+    from
+        produtos p1_0 
+    where
+        p1_0.nome=? 
+        and p1_0.categoria_id=? 
+    fetch
+        first ? rows only
+2025-11-11T16:52:38.838-03:00 TRACE 8272 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [coca lata]
+2025-11-11T16:52:38.838-03:00 TRACE 8272 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [1]
+2025-11-11T16:52:38.848-03:00 TRACE 8272 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (3:INTEGER) <- [1]
+2025-11-11T16:52:38.912-03:00 DEBUG 8272 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        produtos
+        (ativo, categoria_id, data_atualizacao, data_criacao, descricao, nome, preco) 
+    values
+        (?, ?, ?, ?, ?, ?, ?) 
+    returning id
+2025-11-11T16:52:38.912-03:00 TRACE 8272 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2025-11-11T16:52:38.912-03:00 TRACE 8272 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [null]
+2025-11-11T16:52:38.912-03:00 TRACE 8272 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [null]
+2025-11-11T16:52:38.926-03:00 TRACE 8272 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP) <- [2025-11-11T16:52:38.867795300]
+2025-11-11T16:52:38.927-03:00 TRACE 8272 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [350ml]
+2025-11-11T16:52:38.929-03:00 TRACE 8272 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [coca lata]
+2025-11-11T16:52:38.929-03:00 TRACE 8272 --- [http-nio-8081-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (7:NUMERIC) <- [5.9]
+2025-11-11T16:52:38.998-03:00  WARN 8272 --- [http-nio-8081-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23502
+2025-11-11T16:52:38.999-03:00 ERROR 8272 --- [http-nio-8081-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERRO: o valor nulo na coluna "categoria_id" da relação "produtos" viola a restrição de não-nulo
+  Detalhe: Registro que falhou contém (3, t, null, 2025-11-11 16:52:38.867795, 350ml, coca lata, 5.90, null).
+2025-11-11T16:52:39.048-03:00  WARN 8272 --- [http-nio-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERRO: o valor nulo na coluna "categoria_id" da relação "produtos" viola a restrição de não-nulo<EOL>  Detalhe: Registro que falhou contém (3, t, null, 2025-11-11 16:52:38.867795, 350ml, coca lata, 5.90, null).] [insert into produtos (ativo,categoria_id,data_atualizacao,data_criacao,descricao,nome,preco) values (?,?,?,?,?,?,?) returning id]; SQL [insert into produtos (ativo,categoria_id,data_atualizacao,data_criacao,descricao,nome,preco) values (?,?,?,?,?,?,?) returning id]; constraint [null]]
+2025-11-11T16:53:02.944-03:00 DEBUG 8272 --- [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:53:02.944-03:00 TRACE 8272 --- [http-nio-8081-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:53:02.964-03:00 DEBUG 8272 --- [http-nio-8081-exec-2] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:53:02.976-03:00  WARN 8272 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('L' (code 76)): was expecting comma to separate Object entries]
+2025-11-11T16:53:15.348-03:00 DEBUG 8272 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:53:15.348-03:00 TRACE 8272 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:53:15.358-03:00 DEBUG 8272 --- [http-nio-8081-exec-6] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:53:15.367-03:00  INFO 8272 --- [http-nio-8081-exec-6] c.s.a.controller.ProdutoController       : Criando novo produto: coca lata
+2025-11-11T16:53:15.367-03:00 DEBUG 8272 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : 
+    select
+        p1_0.id 
+    from
+        produtos p1_0 
+    where
+        p1_0.nome=? 
+        and p1_0.categoria_id=? 
+    fetch
+        first ? rows only
+2025-11-11T16:53:15.367-03:00 TRACE 8272 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [coca lata]
+2025-11-11T16:53:15.367-03:00 TRACE 8272 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [1]
+2025-11-11T16:53:15.367-03:00 TRACE 8272 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (3:INTEGER) <- [1]
+2025-11-11T16:53:15.367-03:00 DEBUG 8272 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : 
+    insert 
+    into
+        produtos
+        (ativo, categoria_id, data_atualizacao, data_criacao, descricao, nome, preco) 
+    values
+        (?, ?, ?, ?, ?, ?, ?) 
+    returning id
+2025-11-11T16:53:15.374-03:00 TRACE 8272 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2025-11-11T16:53:15.374-03:00 TRACE 8272 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [null]
+2025-11-11T16:53:15.374-03:00 TRACE 8272 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [null]
+2025-11-11T16:53:15.374-03:00 TRACE 8272 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP) <- [2025-11-11T16:53:15.367185400]
+2025-11-11T16:53:15.374-03:00 TRACE 8272 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [350ml]
+2025-11-11T16:53:15.374-03:00 TRACE 8272 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [coca lata]
+2025-11-11T16:53:15.374-03:00 TRACE 8272 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (7:NUMERIC) <- [5.9]
+2025-11-11T16:53:15.374-03:00  WARN 8272 --- [http-nio-8081-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23502
+2025-11-11T16:53:15.374-03:00 ERROR 8272 --- [http-nio-8081-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERRO: o valor nulo na coluna "categoria_id" da relação "produtos" viola a restrição de não-nulo
+  Detalhe: Registro que falhou contém (4, t, null, 2025-11-11 16:53:15.367185, 350ml, coca lata, 5.90, null).
+2025-11-11T16:53:15.380-03:00  WARN 8272 --- [http-nio-8081-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERRO: o valor nulo na coluna "categoria_id" da relação "produtos" viola a restrição de não-nulo<EOL>  Detalhe: Registro que falhou contém (4, t, null, 2025-11-11 16:53:15.367185, 350ml, coca lata, 5.90, null).] [insert into produtos (ativo,categoria_id,data_atualizacao,data_criacao,descricao,nome,preco) values (?,?,?,?,?,?,?) returning id]; SQL [insert into produtos (ativo,categoria_id,data_atualizacao,data_criacao,descricao,nome,preco) values (?,?,?,?,?,?,?) returning id]; constraint [null]]
+2025-11-11T16:56:27.479-03:00  INFO 8272 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-11-11T16:56:27.499-03:00  INFO 8272 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1bea2a13]]
+2025-11-11T16:56:27.500-03:00  INFO 8272 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-11-11T16:56:27.767-03:00  INFO 8272 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:56:27.949-03:00  INFO 8272 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-11T16:56:28.059-03:00  INFO 8272 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-11T16:56:38.448-03:00  INFO 9932 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Starting SyncLinkBackendApplication using Java 23.0.2 with PID 9932 (E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend\target\classes started by Filipe in E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend)
+2025-11-11T16:56:38.451-03:00 DEBUG 9932 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-11-11T16:56:38.452-03:00  INFO 9932 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-11T16:56:38.620-03:00  INFO 9932 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-11T16:56:38.621-03:00  INFO 9932 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-11T16:56:41.860-03:00  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11T16:56:42.053-03:00  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 178 ms. Found 9 JPA repository interfaces.
+2025-11-11T16:56:43.899-03:00  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-11T16:56:43.936-03:00  INFO 9932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-11T16:56:43.937-03:00  INFO 9932 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-11T16:56:44.041-03:00  INFO 9932 --- [restartedMain] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring embedded WebApplicationContext
+2025-11-11T16:56:44.042-03:00  INFO 9932 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5421 ms
+2025-11-11T16:56:44.744-03:00  INFO 9932 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11T16:56:44.851-03:00  INFO 9932 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-11T16:56:44.901-03:00  INFO 9932 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-11T16:56:45.422-03:00  INFO 9932 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11T16:56:45.460-03:00  INFO 9932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-11T16:56:45.791-03:00  INFO 9932 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6b0fe8c6
+2025-11-11T16:56:45.793-03:00  INFO 9932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-11T16:56:45.941-03:00 DEBUG 9932 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@576ad7fc) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@731de68f)
+2025-11-11T16:56:45.941-03:00 DEBUG 9932 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@c883a19) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@33691d79)
+2025-11-11T16:56:47.776-03:00  INFO 9932 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11T16:56:48.020-03:00  INFO 9932 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T16:56:48.691-03:00 DEBUG 9932 --- [restartedMain] c.s.i.security.JwtAuthFilter             : Filter 'jwtAuthFilter' configured for use
+2025-11-11T16:56:48.807-03:00  INFO 9932 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-11T16:56:48.809-03:00  WARN 9932 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-11-11T16:56:49.178-03:00  INFO 9932 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-11T16:56:50.955-03:00  WARN 9932 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11T16:56:51.703-03:00  INFO 9932 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-11T16:56:52.718-03:00  INFO 9932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-11T16:56:52.849-03:00  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/sync-link'
+2025-11-11T16:56:52.852-03:00  INFO 9932 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-11-11T16:56:52.853-03:00  INFO 9932 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7fb5a913]]
+2025-11-11T16:56:52.854-03:00  INFO 9932 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-11-11T16:56:52.876-03:00  INFO 9932 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Started SyncLinkBackendApplication in 15.294 seconds (process running for 16.338)
+2025-11-11T16:56:53.247-03:00 DEBUG 9932 --- [restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.perfil=?
+2025-11-11T16:56:53.249-03:00 TRACE 9932 --- [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ADMIN]
+2025-11-11T16:56:53.271-03:00  INFO 9932 --- [restartedMain] com.synclink.DataInitializer             : ✅ Usuário admin já existe no banco de dados
+2025-11-11T16:57:22.353-03:00  INFO 9932 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-11T16:57:22.353-03:00  INFO 9932 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-11T16:57:22.359-03:00  INFO 9932 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2025-11-11T16:57:28.069-03:00  INFO 9932 --- [http-nio-8081-exec-10] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 4822 ms
+2025-11-11T16:57:45.382-03:00 DEBUG 9932 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:57:45.385-03:00 TRACE 9932 --- [http-nio-8081-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:57:52.801-03:00  INFO 9932 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-11T16:58:17.075-03:00 DEBUG 9932 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T16:58:17.091-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T16:58:17.195-03:00 DEBUG 9932 --- [http-nio-8081-exec-9] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T16:58:17.691-03:00  INFO 9932 --- [http-nio-8081-exec-9] c.s.a.controller.ProdutoController       : Criando novo produto: coca lata
+2025-11-11T16:58:17.837-03:00 DEBUG 9932 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        p1_0.id 
+    from
+        produtos p1_0 
+    where
+        p1_0.nome=? 
+        and p1_0.categoria_id=? 
+    fetch
+        first ? rows only
+2025-11-11T16:58:17.842-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [coca lata]
+2025-11-11T16:58:17.843-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [1]
+2025-11-11T16:58:17.850-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (3:INTEGER) <- [1]
+2025-11-11T16:58:18.655-03:00 DEBUG 9932 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    insert 
+    into
+        produtos
+        (ativo, categoria_id, data_atualizacao, data_criacao, descricao, nome, preco) 
+    values
+        (?, ?, ?, ?, ?, ?, ?) 
+    returning id
+2025-11-11T16:58:18.674-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2025-11-11T16:58:18.676-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [1]
+2025-11-11T16:58:18.676-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [null]
+2025-11-11T16:58:18.680-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP) <- [2025-11-11T16:58:17.884365700]
+2025-11-11T16:58:18.690-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [350ml]
+2025-11-11T16:58:18.690-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [coca lata]
+2025-11-11T16:58:18.696-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (7:NUMERIC) <- [5.9]
+2025-11-11T17:02:01.852-03:00 DEBUG 9932 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T17:02:01.885-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T17:02:02.024-03:00 DEBUG 9932 --- [http-nio-8081-exec-10] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T17:02:02.168-03:00  INFO 9932 --- [http-nio-8081-exec-10] c.s.a.controller.ProdutoController       : Inativando produto ID 5
+2025-11-11T17:02:02.756-03:00 DEBUG 9932 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.ativo,
+        p1_0.categoria_id,
+        p1_0.data_atualizacao,
+        p1_0.data_criacao,
+        p1_0.descricao,
+        p1_0.nome,
+        p1_0.preco 
+    from
+        produtos p1_0 
+    where
+        p1_0.id=?
+2025-11-11T17:02:02.758-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [5]
+2025-11-11T17:02:03.124-03:00 DEBUG 9932 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    update
+        produtos 
+    set
+        ativo=?,
+        categoria_id=?,
+        data_atualizacao=?,
+        data_criacao=?,
+        descricao=?,
+        nome=?,
+        preco=? 
+    where
+        id=?
+2025-11-11T17:02:03.125-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [false]
+2025-11-11T17:02:03.125-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [1]
+2025-11-11T17:02:03.125-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2025-11-11T17:02:02.943432200]
+2025-11-11T17:02:03.125-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP) <- [2025-11-11T16:58:17.884366]
+2025-11-11T17:02:03.125-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [350ml]
+2025-11-11T17:02:03.125-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [coca lata]
+2025-11-11T17:02:03.125-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (7:NUMERIC) <- [5.90]
+2025-11-11T17:02:03.135-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (8:BIGINT) <- [5]
+2025-11-11T17:02:03.187-03:00 DEBUG 9932 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.atualizado_em,
+        c1_0.criado_em,
+        c1_0.descricao,
+        c1_0.nome 
+    from
+        categorias c1_0 
+    where
+        c1_0.id=?
+2025-11-11T17:02:03.187-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2025-11-11T17:02:13.524-03:00 DEBUG 9932 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T17:02:13.524-03:00 TRACE 9932 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T17:02:13.534-03:00 DEBUG 9932 --- [http-nio-8081-exec-1] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T17:02:13.540-03:00  INFO 9932 --- [http-nio-8081-exec-1] c.s.a.controller.ProdutoController       : Ativando produto ID 5
+2025-11-11T17:02:13.547-03:00 DEBUG 9932 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.ativo,
+        p1_0.categoria_id,
+        p1_0.data_atualizacao,
+        p1_0.data_criacao,
+        p1_0.descricao,
+        p1_0.nome,
+        p1_0.preco 
+    from
+        produtos p1_0 
+    where
+        p1_0.id=?
+2025-11-11T17:02:13.547-03:00 TRACE 9932 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [5]
+2025-11-11T17:02:13.552-03:00 DEBUG 9932 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    update
+        produtos 
+    set
+        ativo=?,
+        categoria_id=?,
+        data_atualizacao=?,
+        data_criacao=?,
+        descricao=?,
+        nome=?,
+        preco=? 
+    where
+        id=?
+2025-11-11T17:02:13.552-03:00 TRACE 9932 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2025-11-11T17:02:13.552-03:00 TRACE 9932 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [1]
+2025-11-11T17:02:13.552-03:00 TRACE 9932 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2025-11-11T17:02:13.552449300]
+2025-11-11T17:02:13.552-03:00 TRACE 9932 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP) <- [2025-11-11T16:58:17.884366]
+2025-11-11T17:02:13.552-03:00 TRACE 9932 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [350ml]
+2025-11-11T17:02:13.552-03:00 TRACE 9932 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [coca lata]
+2025-11-11T17:02:13.552-03:00 TRACE 9932 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:NUMERIC) <- [5.90]
+2025-11-11T17:02:13.552-03:00 TRACE 9932 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:BIGINT) <- [5]
+2025-11-11T17:02:13.552-03:00 DEBUG 9932 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.atualizado_em,
+        c1_0.criado_em,
+        c1_0.descricao,
+        c1_0.nome 
+    from
+        categorias c1_0 
+    where
+        c1_0.id=?
+2025-11-11T17:02:13.552-03:00 TRACE 9932 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2025-11-11T17:04:07.148-03:00 DEBUG 9932 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T17:04:07.181-03:00 TRACE 9932 --- [http-nio-8081-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T17:04:07.268-03:00 DEBUG 9932 --- [http-nio-8081-exec-3] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T17:04:09.030-03:00 DEBUG 9932 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0
+2025-11-11T17:04:38.938-03:00 DEBUG 9932 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T17:04:38.938-03:00 TRACE 9932 --- [http-nio-8081-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T17:04:38.973-03:00 DEBUG 9932 --- [http-nio-8081-exec-5] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T17:04:38.973-03:00  INFO 9932 --- [http-nio-8081-exec-5] c.s.a.controller.ProdutoController       : Listando todos os produtos
+2025-11-11T17:04:39.004-03:00 DEBUG 9932 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.ativo,
+        p1_0.categoria_id,
+        p1_0.data_atualizacao,
+        p1_0.data_criacao,
+        p1_0.descricao,
+        p1_0.nome,
+        p1_0.preco 
+    from
+        produtos p1_0
+2025-11-11T17:04:39.038-03:00 DEBUG 9932 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.atualizado_em,
+        c1_0.criado_em,
+        c1_0.descricao,
+        c1_0.nome 
+    from
+        categorias c1_0 
+    where
+        c1_0.id=?
+2025-11-11T17:04:39.038-03:00 TRACE 9932 --- [http-nio-8081-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2025-11-11T17:05:44.247-03:00 DEBUG 9932 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T17:05:44.247-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T17:05:44.262-03:00 DEBUG 9932 --- [http-nio-8081-exec-9] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T17:05:44.274-03:00  INFO 9932 --- [http-nio-8081-exec-9] c.s.a.controller.ProdutoController       : Listando produtos da categoria 1
+2025-11-11T17:05:44.360-03:00 DEBUG 9932 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.ativo,
+        p1_0.categoria_id,
+        p1_0.data_atualizacao,
+        p1_0.data_criacao,
+        p1_0.descricao,
+        p1_0.nome,
+        p1_0.preco 
+    from
+        produtos p1_0 
+    where
+        p1_0.categoria_id=? 
+        and p1_0.ativo
+2025-11-11T17:05:44.360-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2025-11-11T17:05:44.373-03:00 DEBUG 9932 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.atualizado_em,
+        c1_0.criado_em,
+        c1_0.descricao,
+        c1_0.nome 
+    from
+        categorias c1_0 
+    where
+        c1_0.id=?
+2025-11-11T17:05:44.373-03:00 TRACE 9932 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2025-11-11T17:05:58.615-03:00 DEBUG 9932 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T17:05:58.618-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T17:05:58.632-03:00 DEBUG 9932 --- [http-nio-8081-exec-10] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T17:05:58.636-03:00  INFO 9932 --- [http-nio-8081-exec-10] c.s.a.controller.ProdutoController       : Buscando produto com ID 5
+2025-11-11T17:05:58.644-03:00 DEBUG 9932 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.ativo,
+        p1_0.categoria_id,
+        p1_0.data_atualizacao,
+        p1_0.data_criacao,
+        p1_0.descricao,
+        p1_0.nome,
+        p1_0.preco 
+    from
+        produtos p1_0 
+    where
+        p1_0.id=?
+2025-11-11T17:05:58.644-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [5]
+2025-11-11T17:05:58.650-03:00 DEBUG 9932 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.atualizado_em,
+        c1_0.criado_em,
+        c1_0.descricao,
+        c1_0.nome 
+    from
+        categorias c1_0 
+    where
+        c1_0.id=?
+2025-11-11T17:05:58.650-03:00 TRACE 9932 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2025-11-11T17:06:33.437-03:00 DEBUG 9932 --- [http-nio-8081-exec-1] c.s.a.service.WebSocketService           : 📤 Mensagem enviada para /topic/pedidos: TESTE_PEDIDOS
+2025-11-11T17:08:52.920-03:00 DEBUG 9932 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T17:08:52.922-03:00 TRACE 9932 --- [http-nio-8081-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T17:08:52.933-03:00 DEBUG 9932 --- [http-nio-8081-exec-3] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T17:08:53.781-03:00  WARN 9932 --- [http-nio-8081-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [jakarta.validation.ConstraintViolationException: Validation failed for classes [com.synclink.model.Estoque] during persist time for groups [jakarta.validation.groups.Default, ]<EOL>List of constraint violations:[<EOL>?ConstraintViolationImpl{interpolatedMessage='não deve ser nulo', propertyPath=produto, rootBeanClass=class com.synclink.model.Estoque, messageTemplate='{jakarta.validation.constraints.NotNull.message}'}<EOL>]]
+2025-11-11T17:17:07.705-03:00  INFO 9932 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-11-11T17:17:07.739-03:00  INFO 9932 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7fb5a913]]
+2025-11-11T17:17:07.739-03:00  INFO 9932 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-11-11T17:17:08.054-03:00  INFO 9932 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T17:17:08.297-03:00  INFO 9932 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-11T17:17:08.420-03:00  INFO 9932 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-11T19:04:06.963-03:00  INFO 11184 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Starting SyncLinkBackendApplication using Java 23.0.2 with PID 11184 (E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend\target\classes started by Filipe in E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend)
+2025-11-11T19:04:06.988-03:00 DEBUG 11184 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-11-11T19:04:06.990-03:00  INFO 11184 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-11T19:04:07.231-03:00  INFO 11184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-11T19:04:07.231-03:00  INFO 11184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-11T19:04:12.991-03:00  INFO 11184 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11T19:04:13.241-03:00  INFO 11184 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 230 ms. Found 9 JPA repository interfaces.
+2025-11-11T19:04:15.424-03:00  INFO 11184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-11T19:04:15.452-03:00  INFO 11184 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-11T19:04:15.452-03:00  INFO 11184 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-11T19:04:15.595-03:00  INFO 11184 --- [restartedMain] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring embedded WebApplicationContext
+2025-11-11T19:04:15.595-03:00  INFO 11184 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8364 ms
+2025-11-11T19:04:16.469-03:00  INFO 11184 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11T19:04:16.666-03:00  INFO 11184 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-11T19:04:16.800-03:00  INFO 11184 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-11T19:04:17.713-03:00  INFO 11184 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11T19:04:17.786-03:00  INFO 11184 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-11T19:04:18.329-03:00  INFO 11184 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@30e15a6f
+2025-11-11T19:04:18.333-03:00  INFO 11184 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-11T19:04:18.528-03:00 DEBUG 11184 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@1a2a6460) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@810fb3e)
+2025-11-11T19:04:18.530-03:00 DEBUG 11184 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@4cbe6fa6) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@64167e6f)
+2025-11-11T19:04:21.304-03:00  INFO 11184 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11T19:04:21.800-03:00  INFO 11184 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T19:04:22.701-03:00 DEBUG 11184 --- [restartedMain] c.s.i.security.JwtAuthFilter             : Filter 'jwtAuthFilter' configured for use
+2025-11-11T19:04:22.877-03:00  INFO 11184 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-11T19:04:22.881-03:00  WARN 11184 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-11-11T19:04:23.539-03:00  INFO 11184 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-11T19:04:26.727-03:00  WARN 11184 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11T19:04:27.666-03:00  INFO 11184 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-11T19:04:29.039-03:00  INFO 11184 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-11T19:04:29.245-03:00  INFO 11184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/sync-link'
+2025-11-11T19:04:29.251-03:00  INFO 11184 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-11-11T19:04:29.257-03:00  INFO 11184 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@627065f8]]
+2025-11-11T19:04:29.262-03:00  INFO 11184 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-11-11T19:04:29.329-03:00  INFO 11184 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Started SyncLinkBackendApplication in 23.54 seconds (process running for 26.81)
+2025-11-11T19:04:30.045-03:00 DEBUG 11184 --- [restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.perfil=?
+2025-11-11T19:04:30.046-03:00 TRACE 11184 --- [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ADMIN]
+2025-11-11T19:04:30.077-03:00  INFO 11184 --- [restartedMain] com.synclink.DataInitializer             : ✅ Usuário admin já existe no banco de dados
+2025-11-11T19:05:06.823-03:00  INFO 11184 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-11T19:05:06.848-03:00  INFO 11184 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-11T19:05:07.070-03:00  INFO 11184 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 212 ms
+2025-11-11T19:05:19.207-03:00  INFO 11184 --- [http-nio-8081-exec-10] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 10003 ms
+2025-11-11T19:05:29.156-03:00  INFO 11184 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-11T19:05:56.769-03:00 DEBUG 11184 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:05:56.772-03:00 TRACE 11184 --- [http-nio-8081-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:06:59.518-03:00 DEBUG 11184 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:06:59.518-03:00 TRACE 11184 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:06:59.545-03:00 DEBUG 11184 --- [http-nio-8081-exec-9] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T19:07:00.121-03:00 DEBUG 11184 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    insert 
+    into
+        estoque
+        (custo_unitario, data_entrada, data_validade, estoque_maximo, estoque_minimo, lote, produto_id, quantidade) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?) 
+    returning id
+2025-11-11T19:07:00.125-03:00 TRACE 11184 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:NUMERIC) <- [5.9]
+2025-11-11T19:07:00.151-03:00 TRACE 11184 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (2:TIMESTAMP) <- [2025-11-11T19:06:59.783610]
+2025-11-11T19:07:00.158-03:00 TRACE 11184 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2025-11-11T22:06:22.501]
+2025-11-11T19:07:00.162-03:00 TRACE 11184 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) <- [300]
+2025-11-11T19:07:00.162-03:00 TRACE 11184 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) <- [10]
+2025-11-11T19:07:00.162-03:00 TRACE 11184 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [LT-1025]
+2025-11-11T19:07:00.164-03:00 TRACE 11184 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (7:BIGINT) <- [5]
+2025-11-11T19:07:00.164-03:00 TRACE 11184 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (8:INTEGER) <- [100]
+2025-11-11T19:07:00.343-03:00  INFO 11184 --- [http-nio-8081-exec-9] c.s.a.service.impl.EstoqueServiceImpl    : Novo estoque criado para o produto ID 5
+2025-11-11T19:35:29.382-03:00  INFO 11184 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 0, completed tasks = 1]
+2025-11-11T19:42:44.907-03:00  INFO 11184 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-11-11T19:42:44.972-03:00  INFO 11184 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@627065f8]]
+2025-11-11T19:42:44.974-03:00  INFO 11184 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-11-11T19:42:45.588-03:00  INFO 11184 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T19:42:45.978-03:00  INFO 11184 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-11T19:42:46.150-03:00  INFO 11184 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-11T19:44:18.137-03:00  INFO 14244 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Starting SyncLinkBackendApplication using Java 23.0.2 with PID 14244 (E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend\target\classes started by Filipe in E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend)
+2025-11-11T19:44:18.171-03:00 DEBUG 14244 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-11-11T19:44:18.173-03:00  INFO 14244 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-11T19:44:18.405-03:00  INFO 14244 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-11T19:44:18.405-03:00  INFO 14244 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-11T19:44:22.818-03:00  INFO 14244 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11T19:44:23.016-03:00  INFO 14244 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 182 ms. Found 9 JPA repository interfaces.
+2025-11-11T19:44:25.287-03:00  INFO 14244 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-11T19:44:25.338-03:00  INFO 14244 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-11T19:44:25.340-03:00  INFO 14244 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-11T19:44:25.536-03:00  INFO 14244 --- [restartedMain] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring embedded WebApplicationContext
+2025-11-11T19:44:25.537-03:00  INFO 14244 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7130 ms
+2025-11-11T19:44:26.344-03:00  INFO 14244 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11T19:44:26.483-03:00  INFO 14244 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-11T19:44:26.563-03:00  INFO 14244 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-11T19:44:27.266-03:00  INFO 14244 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11T19:44:27.337-03:00  INFO 14244 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-11T19:44:27.882-03:00  INFO 14244 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4d65aeb2
+2025-11-11T19:44:27.884-03:00  INFO 14244 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-11T19:44:28.092-03:00 DEBUG 14244 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@1928813c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@1f928eb8)
+2025-11-11T19:44:28.093-03:00 DEBUG 14244 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1dfafbc5) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@4134b86b)
+2025-11-11T19:44:30.771-03:00  INFO 14244 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11T19:44:31.309-03:00  INFO 14244 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T19:44:32.155-03:00 DEBUG 14244 --- [restartedMain] c.s.i.security.JwtAuthFilter             : Filter 'jwtAuthFilter' configured for use
+2025-11-11T19:44:32.330-03:00  INFO 14244 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-11T19:44:32.332-03:00  WARN 14244 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-11-11T19:44:32.728-03:00  INFO 14244 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-11T19:44:35.659-03:00  WARN 14244 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11T19:44:36.700-03:00  INFO 14244 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-11T19:44:37.890-03:00  INFO 14244 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-11T19:44:38.038-03:00  INFO 14244 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/sync-link'
+2025-11-11T19:44:38.042-03:00  INFO 14244 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-11-11T19:44:38.042-03:00  INFO 14244 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4ace3a87]]
+2025-11-11T19:44:38.042-03:00  INFO 14244 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-11-11T19:44:38.069-03:00  INFO 14244 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Started SyncLinkBackendApplication in 21.133 seconds (process running for 22.561)
+2025-11-11T19:44:38.505-03:00 DEBUG 14244 --- [restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.perfil=?
+2025-11-11T19:44:38.509-03:00 TRACE 14244 --- [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ADMIN]
+2025-11-11T19:44:38.538-03:00  INFO 14244 --- [restartedMain] com.synclink.DataInitializer             : ✅ Usuário admin já existe no banco de dados
+2025-11-11T19:45:38.256-03:00  INFO 14244 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-11T19:47:39.828-03:00  INFO 14244 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-11-11T19:47:39.845-03:00  INFO 14244 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4ace3a87]]
+2025-11-11T19:47:39.847-03:00  INFO 14244 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-11-11T19:47:40.201-03:00  INFO 14244 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T19:47:40.486-03:00  INFO 14244 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-11T19:47:40.650-03:00  INFO 14244 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-11T19:50:21.320-03:00  INFO 14488 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Starting SyncLinkBackendApplication using Java 23.0.2 with PID 14488 (E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend\target\classes started by Filipe in E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend)
+2025-11-11T19:50:21.329-03:00 DEBUG 14488 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-11-11T19:50:21.332-03:00  INFO 14488 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-11T19:50:21.554-03:00  INFO 14488 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-11T19:50:21.558-03:00  INFO 14488 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-11T19:50:27.413-03:00  INFO 14488 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11T19:50:27.798-03:00  INFO 14488 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 355 ms. Found 9 JPA repository interfaces.
+2025-11-11T19:50:31.070-03:00  INFO 14488 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-11T19:50:31.116-03:00  INFO 14488 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-11T19:50:31.116-03:00  INFO 14488 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-11T19:50:31.305-03:00  INFO 14488 --- [restartedMain] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring embedded WebApplicationContext
+2025-11-11T19:50:31.309-03:00  INFO 14488 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 9749 ms
+2025-11-11T19:50:32.665-03:00  INFO 14488 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11T19:50:33.069-03:00  INFO 14488 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-11T19:50:33.261-03:00  INFO 14488 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-11T19:50:34.725-03:00  INFO 14488 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11T19:50:34.769-03:00  INFO 14488 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-11T19:50:35.291-03:00  INFO 14488 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2dac70a6
+2025-11-11T19:50:35.295-03:00  INFO 14488 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-11T19:50:35.487-03:00 DEBUG 14488 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@72ce1483) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@7e445ad3)
+2025-11-11T19:50:35.487-03:00 DEBUG 14488 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1928813c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1f928eb8)
+2025-11-11T19:50:38.585-03:00  INFO 14488 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11T19:50:38.833-03:00 DEBUG 14488 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists comandas 
+       alter column codigo set data type varchar(50)
+2025-11-11T19:50:38.963-03:00 DEBUG 14488 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists comandas 
+       alter column status set data type varchar(20)
+2025-11-11T19:50:39.276-03:00  INFO 14488 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T19:50:40.289-03:00 DEBUG 14488 --- [restartedMain] c.s.i.security.JwtAuthFilter             : Filter 'jwtAuthFilter' configured for use
+2025-11-11T19:50:40.637-03:00  INFO 14488 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-11T19:50:40.639-03:00  WARN 14488 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-11-11T19:50:41.425-03:00  INFO 14488 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-11T19:50:44.704-03:00  WARN 14488 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11T19:50:45.780-03:00  INFO 14488 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-11T19:50:46.859-03:00  INFO 14488 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-11T19:50:47.057-03:00  INFO 14488 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/sync-link'
+2025-11-11T19:50:47.067-03:00  INFO 14488 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-11-11T19:50:47.073-03:00  INFO 14488 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@20f62130]]
+2025-11-11T19:50:47.073-03:00  INFO 14488 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-11-11T19:50:47.118-03:00  INFO 14488 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Started SyncLinkBackendApplication in 27.311 seconds (process running for 29.083)
+2025-11-11T19:50:47.610-03:00 DEBUG 14488 --- [restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.perfil=?
+2025-11-11T19:50:47.614-03:00 TRACE 14488 --- [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ADMIN]
+2025-11-11T19:50:47.651-03:00  INFO 14488 --- [restartedMain] com.synclink.DataInitializer             : ✅ Usuário admin já existe no banco de dados
+2025-11-11T19:51:47.760-03:00  INFO 14488 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-11T19:53:06.005-03:00  INFO 14488 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-11-11T19:53:06.038-03:00  INFO 14488 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@20f62130]]
+2025-11-11T19:53:06.038-03:00  INFO 14488 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-11-11T19:53:06.571-03:00  INFO 14488 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T19:53:07.213-03:00  INFO 14488 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-11T19:53:07.546-03:00  INFO 14488 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

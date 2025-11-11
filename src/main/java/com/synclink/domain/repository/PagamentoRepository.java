@@ -16,15 +16,16 @@ import java.util.List;
 public interface PagamentoRepository extends JpaRepository<Pagamento, Long> {
 
     List<Pagamento> findByPedidoId(Long pedidoId);
+
     List<Pagamento> findByStatus(StatusPagamento status);
 
-    // Adicione estes métodos para funcionalidades completas:
     @Query("SELECT p FROM Pagamento p WHERE p.dataCriacao BETWEEN :inicio AND :fim")
     List<Pagamento> findByPeriodo(@Param("inicio") LocalDateTime inicio, @Param("fim") LocalDateTime fim);
 
     @Query("SELECT p FROM Pagamento p WHERE p.formaPagamento = :formaPagamento")
     List<Pagamento> findByFormaPagamento(@Param("formaPagamento") FormaPagamento formaPagamento);
 
-    @Query("SELECT SUM(p.valor) FROM Pagamento p WHERE p.status = 'APROVADO' AND p.dataCriacao BETWEEN :inicio AND :fim")
+    @Query("SELECT COALESCE(SUM(p.valor), 0) FROM Pagamento p " +
+            "WHERE p.status = 'APROVADO' AND p.dataCriacao BETWEEN :inicio AND :fim")
     BigDecimal calcularTotalPagamentosPeriodo(@Param("inicio") LocalDateTime inicio, @Param("fim") LocalDateTime fim);
 }

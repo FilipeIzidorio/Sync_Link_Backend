@@ -9,15 +9,21 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ItemPedidoMapper {
+
     ItemPedidoMapper INSTANCE = Mappers.getMapper(ItemPedidoMapper.class);
 
+    @Mapping(target = "pedidoId", source = "pedido.id")
+    @Mapping(target = "produtoId", source = "produto.id")
+    @Mapping(target = "produtoNome", source = "produto.nome")
+    @Mapping(target = "precoProduto", source = "produto.preco")
+    @Mapping(target = "subtotal", expression = "java(itemPedido.getSubtotal())")
     ItemPedidoDTO toDto(ItemPedido itemPedido);
 
-
-    ItemPedido toEntity(ItemPedidoDTO itemPedidoDTO);
+    @InheritInverseConfiguration
+    ItemPedido toEntity(ItemPedidoDTO dto);
 
     List<ItemPedidoDTO> toDtoList(List<ItemPedido> itensPedido);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    void updateEntityFromDto(ItemPedidoDTO itemPedidoDTO, @MappingTarget ItemPedido itemPedido);
+    void updateEntityFromDto(ItemPedidoDTO dto, @MappingTarget ItemPedido entity);
 }

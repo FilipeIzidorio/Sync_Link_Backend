@@ -50,4 +50,52 @@ public class WebSocketMessageDTO {
         this(tipo, dados, usuarioId, mesaId);
         this.sessionId = sessionId;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Object getDados() {
+        return dados;
+    }
+
+    public void setDados(Object dados) {
+        this.dados = dados;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public Long getMesaId() {
+        return mesaId;
+    }
+
+    public void setMesaId(Long mesaId) {
+        this.mesaId = mesaId;
+    }
+
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
 }

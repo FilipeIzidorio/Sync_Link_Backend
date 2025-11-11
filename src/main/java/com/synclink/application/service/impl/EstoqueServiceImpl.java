@@ -3,17 +3,19 @@ package com.synclink.application.service.impl;
 import com.synclink.application.dto.EstoqueDTO;
 import com.synclink.application.mapper.EstoqueMapper;
 import com.synclink.application.service.EstoqueService;
-import com.synclink.model.Estoque;
 import com.synclink.domain.repository.EstoqueRepository;
+import com.synclink.model.Estoque;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.NoSuchElementException;
 
+@Slf4j
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class EstoqueServiceImpl implements EstoqueService {
 
@@ -29,33 +31,36 @@ public class EstoqueServiceImpl implements EstoqueService {
     @Override
     @Transactional(readOnly = true)
     public EstoqueDTO findById(Long id) {
-        Estoque estoque = estoqueRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Estoque não encontrado com ID: " + id));
-        return estoqueMapper.toDto(estoque);
+        Estoque e = estoqueRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Estoque não encontrado com ID: " + id));
+        return estoqueMapper.toDto(e);
     }
 
     @Override
-    public EstoqueDTO create(EstoqueDTO estoqueDTO) {
-        Estoque estoque = estoqueMapper.toEntity(estoqueDTO);
-        estoque = estoqueRepository.save(estoque);
-        return estoqueMapper.toDto(estoque);
+    public EstoqueDTO create(EstoqueDTO dto) {
+        Estoque e = estoqueMapper.toEntity(dto);
+        e.setDataEntrada(LocalDateTime.now());
+        e = estoqueRepository.save(e);
+        log.info("Novo estoque criado para o produto ID {}", e.getProduto().getId());
+        return estoqueMapper.toDto(e);
     }
 
     @Override
-    public EstoqueDTO update(Long id, EstoqueDTO estoqueDTO) {
-        Estoque estoque = estoqueRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Estoque não encontrado com ID: " + id));
-
-        estoqueMapper.updateEntityFromDto(estoqueDTO, estoque);
-        estoque = estoqueRepository.save(estoque);
-        return estoqueMapper.toDto(estoque);
+    public EstoqueDTO update(Long id, EstoqueDTO dto) {
+        Estoque e = estoqueRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Estoque não encontrado com ID: " + id));
+        estoqueMapper.updateEntityFromDto(dto, e);
+        e = estoqueRepository.save(e);
+        log.info("Estoque ID {} atualizado", id);
+        return estoqueMapper.toDto(e);
     }
 
     @Override
     public void delete(Long id) {
-        Estoque estoque = estoqueRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Estoque não encontrado com ID: " + id));
-        estoqueRepository.delete(estoque);
+        if (!estoqueRepository.existsById(id))
+            throw new EntityNotFoundException("Estoque não encontrado com ID: " + id);
+        estoqueRepository.deleteById(id);
+        log.info("Estoque ID {} excluído com sucesso", id);
     }
 
     @Override
@@ -71,22 +76,22 @@ public class EstoqueServiceImpl implements EstoqueService {
     }
 
     @Override
-    public EstoqueDTO adicionarQuantidade(Long id, Integer quantidade) {
-        Estoque estoque = estoqueRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Estoque não encontrado com ID: " + id));
-
-        estoque.adicionarQuantidade(quantidade);
-        estoque = estoqueRepository.save(estoque);
-        return estoqueMapper.toDto(estoque);
+    public EstoqueDTO adicionarQuantidade(Long id, Integer qtd) {
+        Estoque e = estoqueRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Estoque não encontrado com ID: " + id));
+        e.adicionarQuantidade(qtd);
+        e = estoqueRepository.save(e);
+        log.info("{} unidades adicionadas ao estoque ID {}", qtd, id);
+        return estoqueMapper.toDto(e);
     }
 
     @Override
-    public EstoqueDTO removerQuantidade(Long id, Integer quantidade) {
-        Estoque estoque = estoqueRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Estoque não encontrado com ID: " + id));
-
-        estoque.removerQuantidade(quantidade);
-        estoque = estoqueRepository.save(estoque);
-        return estoqueMapper.toDto(estoque);
+    public EstoqueDTO removerQuantidade(Long id, Integer qtd) {
+        Estoque e = estoqueRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Estoque não encontrado com ID: " + id));
+        e.removerQuantidade(qtd);
+        e = estoqueRepository.save(e);
+        log.info("{} unidades removidas do estoque ID {}", qtd, id);
+        return estoqueMapper.toDto(e);
     }
 }

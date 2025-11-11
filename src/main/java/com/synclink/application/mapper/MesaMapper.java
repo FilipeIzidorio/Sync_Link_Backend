@@ -9,14 +9,15 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface MesaMapper {
+
     MesaMapper INSTANCE = Mappers.getMapper(MesaMapper.class);
 
     MesaDTO toDto(Mesa mesa);
 
-    Mesa toEntity(MesaDTO mesaDTO);
+    Mesa toEntity(MesaDTO dto);
 
     List<MesaDTO> toDtoList(List<Mesa> mesas);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    void updateEntityFromDto(MesaDTO mesaDTO, @MappingTarget Mesa mesa);
+    void updateEntityFromDto(MesaDTO dto, @MappingTarget Mesa entity);
 }

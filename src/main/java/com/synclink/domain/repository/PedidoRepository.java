@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -14,14 +15,16 @@ import java.util.Optional;
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
     List<Pedido> findByStatus(StatusPedido status);
+
     List<Pedido> findByMesaId(Long mesaId);
+
     List<Pedido> findByStatusNot(StatusPedido status);
 
-    @Query("SELECT p FROM Pedido p WHERE p.dataCriacao BETWEEN :inicio AND :fim")
-    List<Pedido> findByPeriodo(LocalDateTime inicio, LocalDateTime fim);
+    @Query("SELECT p FROM Pedido p WHERE p.dataCriacao BETWEEN :inicio AND :fim ORDER BY p.dataCriacao DESC")
+    List<Pedido> findByPeriodo(@Param("inicio") LocalDateTime inicio, @Param("fim") LocalDateTime fim);
 
     @Query("SELECT p FROM Pedido p WHERE p.status IN :statuses ORDER BY p.dataCriacao DESC")
-    List<Pedido> findByStatusIn(List<StatusPedido> statuses);
+    List<Pedido> findByStatusIn(@Param("statuses") List<StatusPedido> statuses);
 
     Long countByStatus(StatusPedido status);
 

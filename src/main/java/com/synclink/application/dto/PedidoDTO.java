@@ -9,10 +9,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Schema(description = "DTO para pedido")
+@Schema(description = "Representação detalhada de um pedido")
 public class PedidoDTO {
 
     private Long id;
@@ -20,51 +20,174 @@ public class PedidoDTO {
     @Schema(description = "ID da mesa", example = "1")
     private Long mesaId;
 
-    @Schema(description = "Número da mesa")
+    @Schema(description = "Número da mesa", example = "5")
     private Integer mesaNumero;
 
-    @Schema(description = "ID do usuário")
+    @Schema(description = "ID do usuário que criou o pedido")
     private Long usuarioId;
 
-    @Schema(description = "Nome do usuário")
+    @Schema(description = "Nome do usuário responsável pelo pedido")
     private String usuarioNome;
 
-    @Schema(description = "Status do pedido")
     private StatusPedido status;
 
-    @Schema(description = "Subtotal do pedido")
     private BigDecimal subtotal;
-
-    @Schema(description = "Acréscimo aplicado")
     private BigDecimal acrescimo;
-
-    @Schema(description = "Desconto aplicado")
     private BigDecimal desconto;
-
-    @Schema(description = "Total do pedido")
     private BigDecimal total;
-
-    @Schema(description = "Valor final")
     private BigDecimal valorFinal;
 
-    @Schema(description = "Observações do pedido")
     private String observacao;
-
-    @Schema(description = "Justificativa do acréscimo")
     private String justificativaAcrescimo;
-
-    @Schema(description = "Justificativa do desconto")
     private String justificativaDesconto;
 
-    @Schema(description = "Data de criação")
     private LocalDateTime dataCriacao;
-
-    @Schema(description = "Data de atualização")
     private LocalDateTime dataAtualizacao;
-
-    @Schema(description = "Data de fechamento")
     private LocalDateTime dataFechamento;
 
-    @Schema(description = "Itens do pedido")
     private List<ItemPedidoDTO> itens;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getMesaId() {
+        return mesaId;
+    }
+
+    public void setMesaId(Long mesaId) {
+        this.mesaId = mesaId;
+    }
+
+    public Integer getMesaNumero() {
+        return mesaNumero;
+    }
+
+    public void setMesaNumero(Integer mesaNumero) {
+        this.mesaNumero = mesaNumero;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+    public String getUsuarioNome() {
+        return usuarioNome;
+    }
+
+    public void setUsuarioNome(String usuarioNome) {
+        this.usuarioNome = usuarioNome;
+    }
+
+    public StatusPedido getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusPedido status) {
+        this.status = status;
+    }
+
+    public BigDecimal getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(BigDecimal subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public BigDecimal getAcrescimo() {
+        return acrescimo;
+    }
+
+    public void setAcrescimo(BigDecimal acrescimo) {
+        this.acrescimo = acrescimo;
+    }
+
+    public BigDecimal getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(BigDecimal desconto) {
+        this.desconto = desconto;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
+    }
+
+    public BigDecimal getValorFinal() {
+        return valorFinal;
+    }
+
+    public void setValorFinal(BigDecimal valorFinal) {
+        this.valorFinal = valorFinal;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+
+    public String getJustificativaAcrescimo() {
+        return justificativaAcrescimo;
+    }
+
+    public void setJustificativaAcrescimo(String justificativaAcrescimo) {
+        this.justificativaAcrescimo = justificativaAcrescimo;
+    }
+
+    public String getJustificativaDesconto() {
+        return justificativaDesconto;
+    }
+
+    public void setJustificativaDesconto(String justificativaDesconto) {
+        this.justificativaDesconto = justificativaDesconto;
+    }
+
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public LocalDateTime getDataAtualizacao() {
+        return dataAtualizacao;
+    }
+
+    public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
+        this.dataAtualizacao = dataAtualizacao;
+    }
+
+    public LocalDateTime getDataFechamento() {
+        return dataFechamento;
+    }
+
+    public void setDataFechamento(LocalDateTime dataFechamento) {
+        this.dataFechamento = dataFechamento;
+    }
+
+    public List<ItemPedidoDTO> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ItemPedidoDTO> itens) {
+        this.itens = itens;
+    }
 }

@@ -39,54 +39,92 @@ public class Estoque {
 
     private String lote;
 
-    // Construtores
-    public Estoque() {}
+    /* ==== MÉTODOS DE REGRA DE NEGÓCIO ==== */
 
-    public Estoque(Produto produto, Integer quantidade, Integer estoqueMinimo, BigDecimal custoUnitario) {
+    public boolean precisaRepor() {
+        return quantidade != null && estoqueMinimo != null && quantidade <= estoqueMinimo;
+    }
+
+    public void adicionarQuantidade(Integer qtd) {
+        if (qtd == null || qtd <= 0) throw new IllegalArgumentException("Quantidade inválida para adicionar");
+        this.quantidade += qtd;
+    }
+
+    public void removerQuantidade(Integer qtd) {
+        if (qtd == null || qtd <= 0) throw new IllegalArgumentException("Quantidade inválida para remover");
+        if (this.quantidade < qtd) throw new IllegalArgumentException("Estoque insuficiente para remoção");
+        this.quantidade -= qtd;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public Integer getEstoqueMinimo() {
+        return estoqueMinimo;
+    }
+
+    public void setEstoqueMinimo(Integer estoqueMinimo) {
         this.estoqueMinimo = estoqueMinimo;
+    }
+
+    public Integer getEstoqueMaximo() {
+        return estoqueMaximo;
+    }
+
+    public void setEstoqueMaximo(Integer estoqueMaximo) {
+        this.estoqueMaximo = estoqueMaximo;
+    }
+
+    public BigDecimal getCustoUnitario() {
+        return custoUnitario;
+    }
+
+    public void setCustoUnitario(BigDecimal custoUnitario) {
         this.custoUnitario = custoUnitario;
     }
 
-    // Métodos auxiliares
-    public Boolean precisaRepor() {
-        return quantidade <= estoqueMinimo;
+    public LocalDateTime getDataEntrada() {
+        return dataEntrada;
     }
 
-    public void adicionarQuantidade(Integer quantidade) {
-        this.quantidade += quantidade;
+    public void setDataEntrada(LocalDateTime dataEntrada) {
+        this.dataEntrada = dataEntrada;
     }
 
-    public void removerQuantidade(Integer quantidade) {
-        this.quantidade -= quantidade;
+    public LocalDateTime getDataValidade() {
+        return dataValidade;
     }
 
-    // Getters e Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public void setDataValidade(LocalDateTime dataValidade) {
+        this.dataValidade = dataValidade;
+    }
 
-    public Produto getProduto() { return produto; }
-    public void setProduto(Produto produto) { this.produto = produto; }
+    public String getLote() {
+        return lote;
+    }
 
-    public Integer getQuantidade() { return quantidade; }
-    public void setQuantidade(Integer quantidade) { this.quantidade = quantidade; }
-
-    public Integer getEstoqueMinimo() { return estoqueMinimo; }
-    public void setEstoqueMinimo(Integer estoqueMinimo) { this.estoqueMinimo = estoqueMinimo; }
-
-    public Integer getEstoqueMaximo() { return estoqueMaximo; }
-    public void setEstoqueMaximo(Integer estoqueMaximo) { this.estoqueMaximo = estoqueMaximo; }
-
-    public BigDecimal getCustoUnitario() { return custoUnitario; }
-    public void setCustoUnitario(BigDecimal custoUnitario) { this.custoUnitario = custoUnitario; }
-
-    public LocalDateTime getDataEntrada() { return dataEntrada; }
-    public void setDataEntrada(LocalDateTime dataEntrada) { this.dataEntrada = dataEntrada; }
-
-    public LocalDateTime getDataValidade() { return dataValidade; }
-    public void setDataValidade(LocalDateTime dataValidade) { this.dataValidade = dataValidade; }
-
-    public String getLote() { return lote; }
-    public void setLote(String lote) { this.lote = lote; }
+    public void setLote(String lote) {
+        this.lote = lote;
+    }
 }

@@ -26,12 +26,14 @@ public class ItemPedido {
     @Column(nullable = false)
     private Integer quantidade = 1;
 
+    @NotNull
     @Column(name = "preco_unitario", precision = 10, scale = 2, nullable = false)
     private BigDecimal precoUnitario;
 
+    @Column(length = 255)
     private String observacao;
 
-    // Construtores
+    // === Construtores ===
     public ItemPedido() {}
 
     public ItemPedido(Pedido pedido, Produto produto, Integer quantidade, String observacao) {
@@ -42,12 +44,19 @@ public class ItemPedido {
         this.observacao = observacao;
     }
 
-    // Método para calcular subtotal
+    // === Regras de negócio ===
     public BigDecimal getSubtotal() {
+        if (precoUnitario == null || quantidade == null) {
+            return BigDecimal.ZERO;
+        }
         return precoUnitario.multiply(BigDecimal.valueOf(quantidade));
     }
 
-    // Getters e Setters
+    public void calcularSubtotal() {
+        this.precoUnitario = (produto != null) ? produto.getPreco() : this.precoUnitario;
+    }
+
+    // === Getters/Setters ===
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -57,7 +66,7 @@ public class ItemPedido {
     public Produto getProduto() { return produto; }
     public void setProduto(Produto produto) {
         this.produto = produto;
-        if (produto != null && this.precoUnitario == null) {
+        if (produto != null) {
             this.precoUnitario = produto.getPreco();
         }
     }
@@ -70,4 +79,5 @@ public class ItemPedido {
 
     public String getObservacao() { return observacao; }
     public void setObservacao(String observacao) { this.observacao = observacao; }
+
 }
