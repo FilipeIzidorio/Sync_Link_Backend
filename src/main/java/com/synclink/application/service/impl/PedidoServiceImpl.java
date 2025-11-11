@@ -5,6 +5,7 @@ import com.synclink.application.mapper.PedidoMapper;
 import com.synclink.application.service.PedidoService;
 import com.synclink.domain.repository.*;
 import com.synclink.model.*;
+import com.synclink.model.enums.StatusPedido;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

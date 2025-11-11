@@ -1,6 +1,6 @@
 package com.synclink.application.dto;
 
-import com.synclink.model.FormaPagamento;
+import com.synclink.model.enums.FormaPagamento;
 import lombok.*;
 
 import java.math.BigDecimal;

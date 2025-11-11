@@ -1,6 +1,6 @@
 package com.synclink.application.dto;
 
-import com.synclink.model.StatusPedido;
+import com.synclink.model.enums.StatusPedido;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 

@@ -3,8 +3,7 @@ package com.synclink.application.service;
 
 
 import com.synclink.application.dto.*;
-import com.synclink.model.FormaPagamento;
-import com.synclink.model.StatusPedido;
+import com.synclink.model.enums.StatusPedido;
 
 import java.math.BigDecimal;
 import java.util.List;

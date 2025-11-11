@@ -1,6 +1,6 @@
 package com.synclink;
 
-import com.synclink.model.PerfilUsuario;
+import com.synclink.model.enums.PerfilUsuario;
 import com.synclink.model.Usuario;
 import com.synclink.domain.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;

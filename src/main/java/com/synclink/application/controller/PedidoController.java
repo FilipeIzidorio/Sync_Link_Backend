@@ -4,7 +4,7 @@ import com.synclink.application.dto.*;
 import com.synclink.application.service.AuthService;
 import com.synclink.application.service.PedidoService;
 import com.synclink.infrastructure.security.JwtService;
-import com.synclink.model.StatusPedido;
+import com.synclink.model.enums.StatusPedido;
 import com.synclink.model.Usuario;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

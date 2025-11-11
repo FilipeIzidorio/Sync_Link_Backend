@@ -1,5 +1,7 @@
 package com.synclink.model;
 
+import com.synclink.model.enums.FormaPagamento;
+import com.synclink.model.enums.StatusPagamento;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;

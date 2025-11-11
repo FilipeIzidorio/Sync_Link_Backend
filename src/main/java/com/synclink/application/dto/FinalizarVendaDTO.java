@@ -1,6 +1,6 @@
 package com.synclink.application.dto;
 
-import com.synclink.model.FormaPagamento;
+import com.synclink.model.enums.FormaPagamento;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 

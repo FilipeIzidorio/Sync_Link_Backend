@@ -1,7 +1,7 @@
 package com.synclink.domain.repository;
 
 import com.synclink.model.Pedido;
-import com.synclink.model.StatusPedido;
+import com.synclink.model.enums.StatusPedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

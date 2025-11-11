@@ -1,5 +1,8 @@
 package com.synclink.model;
 
+import com.synclink.model.enums.StatusComanda;
+import com.synclink.model.enums.StatusMesa;
+import com.synclink.model.enums.StatusPedido;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;

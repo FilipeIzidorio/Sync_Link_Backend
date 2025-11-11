@@ -4,7 +4,7 @@ import com.synclink.application.dto.auth.*;
 import com.synclink.application.service.AuthService;
 import com.synclink.domain.repository.UsuarioRepository;
 import com.synclink.infrastructure.security.JwtService;
-import com.synclink.model.PerfilUsuario;
+import com.synclink.model.enums.PerfilUsuario;
 import com.synclink.model.Usuario;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -15,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 

@@ -2,7 +2,7 @@ package com.synclink.application.service;
 
 import com.synclink.application.dto.MesaDTO;
 import com.synclink.application.dto.MesaResumoDTO;
-import com.synclink.model.StatusMesa;
+import com.synclink.model.enums.StatusMesa;
 import java.util.List;
 
 public interface MesaService {

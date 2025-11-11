@@ -1,8 +1,8 @@
 package com.synclink.application.service;
 
 import com.synclink.application.dto.PagamentoDTO;
-import com.synclink.model.FormaPagamento;
-import com.synclink.model.StatusPagamento;
+import com.synclink.model.enums.FormaPagamento;
+import com.synclink.model.enums.StatusPagamento;
 
 import java.math.BigDecimal;
 import java.util.List;

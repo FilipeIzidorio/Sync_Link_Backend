@@ -1,4 +1,4 @@
-package com.synclink.model;
+package com.synclink.model.enums;
 
 public enum PerfilUsuario {
     ADMIN, GERENTE, GARCOM, COZINHA, CAIXA

@@ -1,8 +1,8 @@
 package com.synclink.domain.repository;
 
-import com.synclink.model.FormaPagamento;
+import com.synclink.model.enums.FormaPagamento;
 import com.synclink.model.Pagamento;
-import com.synclink.model.StatusPagamento;
+import com.synclink.model.enums.StatusPagamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

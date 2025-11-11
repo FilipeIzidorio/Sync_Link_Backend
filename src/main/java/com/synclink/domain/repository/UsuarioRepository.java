@@ -1,6 +1,6 @@
 package com.synclink.domain.repository;
 
-import com.synclink.model.PerfilUsuario;
+import com.synclink.model.enums.PerfilUsuario;
 import com.synclink.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

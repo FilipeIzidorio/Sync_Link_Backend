@@ -1,6 +1,6 @@
 package com.synclink.application.dto;
 
-import com.synclink.model.StatusPedido;
+import com.synclink.model.enums.StatusPedido;
 import lombok.*;
 
 import java.math.BigDecimal;

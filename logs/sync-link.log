@@ -3146,3 +3146,447 @@ Caused by: java.lang.IllegalStateException: Ambiguous @ExceptionHandler method m
 2025-11-11T19:53:06.571-03:00  INFO 14488 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-11-11T19:53:07.213-03:00  INFO 14488 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-11-11T19:53:07.546-03:00  INFO 14488 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-11T19:54:30.360-03:00  INFO 15404 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Starting SyncLinkBackendApplication using Java 23.0.2 with PID 15404 (E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend\target\classes started by Filipe in E:\HD INTERNO\PROJETOS PESSOAIS\sync-link-backend)
+2025-11-11T19:54:30.401-03:00 DEBUG 15404 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-11-11T19:54:30.405-03:00  INFO 15404 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-11T19:54:30.585-03:00  INFO 15404 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-11T19:54:30.587-03:00  INFO 15404 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-11T19:54:36.092-03:00  INFO 15404 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11T19:54:36.361-03:00  INFO 15404 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 248 ms. Found 9 JPA repository interfaces.
+2025-11-11T19:54:39.239-03:00  INFO 15404 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-11T19:54:39.272-03:00  INFO 15404 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-11T19:54:39.272-03:00  INFO 15404 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-11T19:54:39.433-03:00  INFO 15404 --- [restartedMain] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring embedded WebApplicationContext
+2025-11-11T19:54:39.435-03:00  INFO 15404 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8846 ms
+2025-11-11T19:54:40.286-03:00  INFO 15404 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11T19:54:40.737-03:00  INFO 15404 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-11T19:54:41.044-03:00  INFO 15404 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-11T19:54:41.944-03:00  INFO 15404 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11T19:54:42.009-03:00  INFO 15404 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-11T19:54:42.571-03:00  INFO 15404 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@621693c9
+2025-11-11T19:54:42.574-03:00  INFO 15404 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-11T19:54:42.764-03:00 DEBUG 15404 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@624a0ce4) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@5708c560)
+2025-11-11T19:54:42.764-03:00 DEBUG 15404 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5fb6aedb) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2b86ba59)
+2025-11-11T19:54:46.047-03:00  INFO 15404 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11T19:54:46.254-03:00 DEBUG 15404 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pagamentos 
+       alter column bandeira_cartao set data type varchar(30)
+2025-11-11T19:54:46.330-03:00 DEBUG 15404 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pagamentos 
+       alter column codigo_transacao set data type varchar(80)
+2025-11-11T19:54:46.352-03:00 DEBUG 15404 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pagamentos 
+       alter column forma_pagamento set data type varchar(30)
+2025-11-11T19:54:46.375-03:00 DEBUG 15404 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pagamentos 
+       alter column status set data type varchar(20)
+2025-11-11T19:54:46.383-03:00 DEBUG 15404 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pagamentos 
+       alter column ultimos_digitos_cartao set data type varchar(4)
+2025-11-11T19:54:46.669-03:00  INFO 15404 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11T19:54:47.815-03:00 DEBUG 15404 --- [restartedMain] c.s.i.security.JwtAuthFilter             : Filter 'jwtAuthFilter' configured for use
+2025-11-11T19:54:48.073-03:00  INFO 15404 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-11T19:54:48.074-03:00  WARN 15404 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-11-11T19:54:48.628-03:00  INFO 15404 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-11T19:54:51.857-03:00  WARN 15404 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11T19:54:52.774-03:00  INFO 15404 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-11T19:54:53.978-03:00  INFO 15404 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-11T19:54:54.204-03:00  INFO 15404 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/sync-link'
+2025-11-11T19:54:54.204-03:00  INFO 15404 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-11-11T19:54:54.210-03:00  INFO 15404 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@12d864e]]
+2025-11-11T19:54:54.212-03:00  INFO 15404 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-11-11T19:54:54.254-03:00  INFO 15404 --- [restartedMain] c.synclink.SyncLinkBackendApplication    : Started SyncLinkBackendApplication in 24.836 seconds (process running for 26.355)
+2025-11-11T19:54:54.839-03:00 DEBUG 15404 --- [restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.perfil=?
+2025-11-11T19:54:54.842-03:00 TRACE 15404 --- [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ADMIN]
+2025-11-11T19:54:54.875-03:00  INFO 15404 --- [restartedMain] com.synclink.DataInitializer             : ✅ Usuário admin já existe no banco de dados
+2025-11-11T19:55:09.692-03:00  INFO 15404 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/sync-link]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-11T19:55:09.694-03:00  INFO 15404 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-11T19:55:09.720-03:00  INFO 15404 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2025-11-11T19:55:17.452-03:00  INFO 15404 --- [http-nio-8081-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 6276 ms
+2025-11-11T19:55:38.489-03:00 DEBUG 15404 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:55:38.490-03:00 TRACE 15404 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:55:54.144-03:00  INFO 15404 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-11T19:57:15.432-03:00 DEBUG 15404 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:57:15.434-03:00 TRACE 15404 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:57:15.467-03:00 DEBUG 15404 --- [http-nio-8081-exec-10] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T19:57:15.524-03:00 DEBUG 15404 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        m1_0.id 
+    from
+        mesas m1_0 
+    where
+        m1_0.numero=? 
+    fetch
+        first ? rows only
+2025-11-11T19:57:15.530-03:00 TRACE 15404 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:INTEGER) <- [1]
+2025-11-11T19:57:15.532-03:00 TRACE 15404 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2025-11-11T19:57:15.679-03:00 DEBUG 15404 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    insert 
+    into
+        mesas
+        (descricao, numero, status) 
+    values
+        (?, ?, ?) 
+    returning id
+2025-11-11T19:57:15.687-03:00 TRACE 15404 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [null]
+2025-11-11T19:57:15.688-03:00 TRACE 15404 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2025-11-11T19:57:15.690-03:00 TRACE 15404 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [LIVRE]
+2025-11-11T19:57:15.779-03:00  INFO 15404 --- [http-nio-8081-exec-10] c.s.a.service.impl.MesaServiceImpl       : ✅ Mesa número 1 criada com sucesso (ID: 1)
+2025-11-11T19:57:25.056-03:00 DEBUG 15404 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:57:25.058-03:00 TRACE 15404 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:57:25.070-03:00 DEBUG 15404 --- [http-nio-8081-exec-9] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T19:57:25.079-03:00 DEBUG 15404 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        m1_0.id 
+    from
+        mesas m1_0 
+    where
+        m1_0.numero=? 
+    fetch
+        first ? rows only
+2025-11-11T19:57:25.084-03:00 TRACE 15404 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:INTEGER) <- [2]
+2025-11-11T19:57:25.085-03:00 TRACE 15404 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2025-11-11T19:57:25.091-03:00 DEBUG 15404 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    insert 
+    into
+        mesas
+        (descricao, numero, status) 
+    values
+        (?, ?, ?) 
+    returning id
+2025-11-11T19:57:25.093-03:00 TRACE 15404 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [null]
+2025-11-11T19:57:25.093-03:00 TRACE 15404 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [2]
+2025-11-11T19:57:25.093-03:00 TRACE 15404 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [LIVRE]
+2025-11-11T19:57:25.095-03:00  INFO 15404 --- [http-nio-8081-exec-9] c.s.a.service.impl.MesaServiceImpl       : ✅ Mesa número 2 criada com sucesso (ID: 2)
+2025-11-11T19:57:28.781-03:00 DEBUG 15404 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:57:28.783-03:00 TRACE 15404 --- [http-nio-8081-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:57:28.800-03:00 DEBUG 15404 --- [http-nio-8081-exec-3] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T19:57:28.805-03:00 DEBUG 15404 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    select
+        m1_0.id 
+    from
+        mesas m1_0 
+    where
+        m1_0.numero=? 
+    fetch
+        first ? rows only
+2025-11-11T19:57:28.805-03:00 TRACE 15404 --- [http-nio-8081-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:INTEGER) <- [3]
+2025-11-11T19:57:28.815-03:00 TRACE 15404 --- [http-nio-8081-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2025-11-11T19:57:28.816-03:00 DEBUG 15404 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    insert 
+    into
+        mesas
+        (descricao, numero, status) 
+    values
+        (?, ?, ?) 
+    returning id
+2025-11-11T19:57:28.818-03:00 TRACE 15404 --- [http-nio-8081-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [null]
+2025-11-11T19:57:28.818-03:00 TRACE 15404 --- [http-nio-8081-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [3]
+2025-11-11T19:57:28.818-03:00 TRACE 15404 --- [http-nio-8081-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [LIVRE]
+2025-11-11T19:57:28.823-03:00  INFO 15404 --- [http-nio-8081-exec-3] c.s.a.service.impl.MesaServiceImpl       : ✅ Mesa número 3 criada com sucesso (ID: 3)
+2025-11-11T19:57:33.226-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:57:33.226-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:57:33.245-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T19:57:33.267-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        m1_0.id 
+    from
+        mesas m1_0 
+    where
+        m1_0.numero=? 
+    fetch
+        first ? rows only
+2025-11-11T19:57:33.272-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:INTEGER) <- [4]
+2025-11-11T19:57:33.272-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2025-11-11T19:57:33.275-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        mesas
+        (descricao, numero, status) 
+    values
+        (?, ?, ?) 
+    returning id
+2025-11-11T19:57:33.275-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [null]
+2025-11-11T19:57:33.277-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [4]
+2025-11-11T19:57:33.277-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [LIVRE]
+2025-11-11T19:57:33.277-03:00  INFO 15404 --- [http-nio-8081-exec-4] c.s.a.service.impl.MesaServiceImpl       : ✅ Mesa número 4 criada com sucesso (ID: 4)
+2025-11-11T19:57:36.970-03:00 DEBUG 15404 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:57:36.971-03:00 TRACE 15404 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:57:36.994-03:00 DEBUG 15404 --- [http-nio-8081-exec-1] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T19:57:37.003-03:00 DEBUG 15404 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        m1_0.id 
+    from
+        mesas m1_0 
+    where
+        m1_0.numero=? 
+    fetch
+        first ? rows only
+2025-11-11T19:57:37.003-03:00 TRACE 15404 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:INTEGER) <- [5]
+2025-11-11T19:57:37.003-03:00 TRACE 15404 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2025-11-11T19:57:37.003-03:00 DEBUG 15404 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        mesas
+        (descricao, numero, status) 
+    values
+        (?, ?, ?) 
+    returning id
+2025-11-11T19:57:37.009-03:00 TRACE 15404 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [null]
+2025-11-11T19:57:37.009-03:00 TRACE 15404 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [5]
+2025-11-11T19:57:37.009-03:00 TRACE 15404 --- [http-nio-8081-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [LIVRE]
+2025-11-11T19:57:37.009-03:00  INFO 15404 --- [http-nio-8081-exec-1] c.s.a.service.impl.MesaServiceImpl       : ✅ Mesa número 5 criada com sucesso (ID: 5)
+2025-11-11T19:57:51.032-03:00 DEBUG 15404 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:57:51.032-03:00 TRACE 15404 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:57:51.059-03:00 DEBUG 15404 --- [http-nio-8081-exec-6] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T19:57:51.092-03:00 DEBUG 15404 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : 
+    select
+        m1_0.id,
+        m1_0.descricao,
+        m1_0.numero,
+        m1_0.status 
+    from
+        mesas m1_0 
+    where
+        m1_0.status=?
+2025-11-11T19:57:51.092-03:00 TRACE 15404 --- [http-nio-8081-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [LIVRE]
+2025-11-11T19:58:03.265-03:00 DEBUG 15404 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:58:03.269-03:00 TRACE 15404 --- [http-nio-8081-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:58:03.300-03:00 DEBUG 15404 --- [http-nio-8081-exec-10] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T19:58:03.339-03:00 DEBUG 15404 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        m1_0.id,
+        m1_0.descricao,
+        m1_0.numero,
+        m1_0.status 
+    from
+        mesas m1_0
+2025-11-11T19:58:29.769-03:00 DEBUG 15404 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:58:29.769-03:00 TRACE 15404 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:58:29.786-03:00 DEBUG 15404 --- [http-nio-8081-exec-9] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T19:58:29.804-03:00 DEBUG 15404 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        m1_0.id,
+        m1_0.descricao,
+        m1_0.numero,
+        m1_0.status 
+    from
+        mesas m1_0 
+    where
+        m1_0.status=?
+2025-11-11T19:58:29.804-03:00 TRACE 15404 --- [http-nio-8081-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [LIVRE]
+2025-11-11T19:59:22.896-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.ativo,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.perfil,
+        u1_0.senha 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=?
+2025-11-11T19:59:22.900-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin@gmail.com]
+2025-11-11T19:59:22.907-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] c.s.i.security.JwtAuthFilter             : ✅ JWT autenticado para usuário: admin@gmail.com
+2025-11-11T19:59:23.021-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        m1_0.id,
+        m1_0.descricao,
+        m1_0.numero,
+        m1_0.status 
+    from
+        mesas m1_0 
+    where
+        m1_0.id=?
+2025-11-11T19:59:23.021-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2025-11-11T19:59:23.057-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.codigo,
+        c1_0.data_abertura,
+        c1_0.data_fechamento,
+        c1_0.mesa_id,
+        c1_0.status 
+    from
+        comandas c1_0 
+    where
+        c1_0.mesa_id=? 
+        and c1_0.status=?
+2025-11-11T19:59:23.057-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2025-11-11T19:59:23.057-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) <- [ABERTA]
+2025-11-11T19:59:23.072-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.codigo,
+        c1_0.data_abertura,
+        c1_0.data_fechamento,
+        c1_0.mesa_id,
+        c1_0.status 
+    from
+        comandas c1_0 
+    where
+        c1_0.codigo=?
+2025-11-11T19:59:23.076-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [CMD3B31E17A]
+2025-11-11T19:59:23.079-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        comandas
+        (codigo, data_abertura, data_fechamento, mesa_id, status) 
+    values
+        (?, ?, ?, ?, ?) 
+    returning id
+2025-11-11T19:59:23.079-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [CMD3B31E17A]
+2025-11-11T19:59:23.079-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (2:TIMESTAMP) <- [2025-11-11T19:59:23.076154800]
+2025-11-11T19:59:23.091-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [null]
+2025-11-11T19:59:23.091-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (4:BIGINT) <- [1]
+2025-11-11T19:59:23.091-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [ABERTA]
+2025-11-11T19:59:23.233-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] c.s.a.service.WebSocketService           : 📤 Mensagem enviada para /topic/comandas: COMANDA_ABERTA
+2025-11-11T19:59:23.250-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] c.s.a.service.WebSocketService           : 📤 Mensagem enviada para /topic/mesas: COMANDA_ABERTA
+2025-11-11T19:59:23.252-03:00  INFO 15404 --- [http-nio-8081-exec-4] c.s.a.service.WebSocketService           : 📋 Notificação: Comanda aberta - Mesa 1
+2025-11-11T19:59:23.264-03:00  INFO 15404 --- [http-nio-8081-exec-4] c.s.a.service.impl.ComandaServiceImpl    : Comanda aberta com sucesso: Código CMD3B31E17A, Mesa 1
+2025-11-11T19:59:23.297-03:00 DEBUG 15404 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    update
+        mesas 
+    set
+        descricao=?,
+        numero=?,
+        status=? 
+    where
+        id=?
+2025-11-11T19:59:23.297-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [null]
+2025-11-11T19:59:23.297-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2025-11-11T19:59:23.302-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [OCUPADA]
+2025-11-11T19:59:23.302-03:00 TRACE 15404 --- [http-nio-8081-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (4:BIGINT) <- [1]

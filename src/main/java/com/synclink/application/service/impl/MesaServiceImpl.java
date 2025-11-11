@@ -6,7 +6,7 @@ import com.synclink.application.mapper.MesaMapper;
 import com.synclink.application.service.MesaService;
 import com.synclink.domain.repository.MesaRepository;
 import com.synclink.model.Mesa;
-import com.synclink.model.StatusMesa;
+import com.synclink.model.enums.StatusMesa;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

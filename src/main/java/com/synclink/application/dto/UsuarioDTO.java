@@ -1,6 +1,6 @@
 package com.synclink.application.dto;
 
-import com.synclink.model.PerfilUsuario;
+import com.synclink.model.enums.PerfilUsuario;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;

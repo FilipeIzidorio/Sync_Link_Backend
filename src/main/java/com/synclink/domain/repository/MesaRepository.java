@@ -1,7 +1,7 @@
 package com.synclink.domain.repository;
 
 import com.synclink.model.Mesa;
-import com.synclink.model.StatusMesa;
+import com.synclink.model.enums.StatusMesa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

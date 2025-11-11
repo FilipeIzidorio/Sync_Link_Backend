@@ -2,8 +2,8 @@ package com.synclink.application.controller;
 
 import com.synclink.application.dto.PagamentoDTO;
 import com.synclink.application.service.PagamentoService;
-import com.synclink.model.FormaPagamento;
-import com.synclink.model.StatusPagamento;
+import com.synclink.model.enums.FormaPagamento;
+import com.synclink.model.enums.StatusPagamento;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

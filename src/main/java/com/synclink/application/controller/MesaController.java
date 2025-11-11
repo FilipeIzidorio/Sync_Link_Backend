@@ -3,7 +3,7 @@ package com.synclink.application.controller;
 import com.synclink.application.dto.MesaDTO;
 import com.synclink.application.dto.MesaResumoDTO;
 import com.synclink.application.service.MesaService;
-import com.synclink.model.StatusMesa;
+import com.synclink.model.enums.StatusMesa;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

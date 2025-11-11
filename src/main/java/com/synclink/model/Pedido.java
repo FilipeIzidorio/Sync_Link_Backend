@@ -1,6 +1,7 @@
 package com.synclink.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.synclink.model.enums.StatusPedido;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
