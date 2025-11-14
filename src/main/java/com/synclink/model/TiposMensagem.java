@@ -23,12 +23,6 @@ public class TiposMensagem {
     public static final String MESA_OCUPADA = "MESA_OCUPADA";
     public static final String MESA_LIVRE = "MESA_LIVRE";
 
-    // Mensagens de Cozinha
-    public static final String ACIONAMENTO_COZINHA = "ACIONAMENTO_COZINHA";
-    public static final String PEDIDO_INICIAR_PREPARO = "PEDIDO_INICIAR_PREPARO";
-    public static final String PEDIDO_FINALIZAR_PREPARO = "PEDIDO_FINALIZAR_PREPARO";
-    public static final String PEDIDO_MARCAR_PRONTO = "PEDIDO_MARCAR_PRONTO";
-    public static final String COZINHA_SOLICITAR_PEDIDOS = "COZINHA_SOLICITAR_PEDIDOS";
 
     // Mensagens de Comandas
     public static final String COMANDA_ABERTA = "COMANDA_ABERTA";
@@ -54,6 +48,5 @@ public class TiposMensagem {
     // Mensagens de Subscrição
     public static final String SUBSCRICAO_MESAS_ATIVA = "SUBSCRICAO_MESAS_ATIVA";
     public static final String SUBSCRICAO_PEDIDOS_ATIVA = "SUBSCRICAO_PEDIDOS_ATIVA";
-    public static final String SUBSCRICAO_COZINHA_ATIVA = "SUBSCRICAO_COZINHA_ATIVA";
     public static final String SUBSCRICAO_NOTIFICACOES_ATIVA = "SUBSCRICAO_NOTIFICACOES_ATIVA";
 }

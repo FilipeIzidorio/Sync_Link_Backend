@@ -49,3 +49,10 @@
         u1_0.perfil=?
 2025-11-14T09:46:37.783-03:00 TRACE 15640 --- [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ADMIN]
 2025-11-14T09:46:37.823-03:00  INFO 15640 --- [restartedMain] com.synclink.DataInitializer             : ✅ Usuário admin já existe no banco de dados
+2025-11-14T09:47:37.939-03:00  INFO 15640 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-14T10:15:49.253-03:00  INFO 15640 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2025-11-14T10:15:49.324-03:00  INFO 15640 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1725ef80]]
+2025-11-14T10:15:49.325-03:00  INFO 15640 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2025-11-14T10:15:49.701-03:00  INFO 15640 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-14T10:15:50.030-03:00  INFO 15640 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-14T10:15:50.100-03:00  INFO 15640 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
