@@ -17,7 +17,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 /**
- * Filtro JWT responsável por interceptar requisições,
+ * 🔐 Filtro JWT responsável por interceptar requisições HTTP,
  * validar o token e preencher o contexto de segurança do Spring.
  */
 @Slf4j
@@ -49,24 +49,25 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             return;
         }
 
-        String jwt = authHeader.substring(7);
-        String username = jwtService.extractUsername(jwt);
+        final String jwt = authHeader.substring(7);
+        final String username = jwtService.extractUsername(jwt);
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = authService.loadUserByUsername(username);
 
-            if (jwtService.isTokenValid(jwt, userDetails.getUsername())) {
+            // ✅ Valida o token corretamente com UserDetails
+            if (jwtService.isTokenValid(jwt, userDetails)) {
                 UsernamePasswordAuthenticationToken authToken =
                         new UsernamePasswordAuthenticationToken(
                                 userDetails,
                                 null,
-                                userDetails.getAuthorities() // ✅ PERFIS/ROLES corretos
+                                userDetails.getAuthorities()
                         );
 
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authToken);
 
-                log.debug("✅ JWT autenticado para usuário: {}", username);
+                log.debug("✅ JWT autenticado com sucesso para o usuário: {}", username);
             } else {
                 log.warn("⚠️ Token JWT inválido ou expirado para o usuário {}", username);
             }
@@ -75,13 +76,15 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    /**
+     * Define os caminhos que não precisam de autenticação.
+     */
     private boolean isPublicPath(String path) {
-        return path.contains("/auth")
-                || path.contains("/swagger-ui")
-                || path.contains("/api-docs")
-                || path.contains("/v3/api-docs")
-                || path.contains("/error")
-                || path.contains("/ws")
-                || path.contains("/ws-test");
+        return path.startsWith("/auth")
+                || path.startsWith("/swagger-ui")
+                || path.startsWith("/v3/api-docs")
+                || path.startsWith("/error")
+                || path.startsWith("/ws")
+                || path.startsWith("/ws-test");
     }
 }

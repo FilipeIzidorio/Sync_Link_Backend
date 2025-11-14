@@ -29,7 +29,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final JwtAuthFilter jwtAuthFilter;
-    private final AuthService authService; // ✅ Injetado automaticamente
+    private final AuthService authService;
     private final PasswordConfig passwordConfig;
 
     // ============================================================

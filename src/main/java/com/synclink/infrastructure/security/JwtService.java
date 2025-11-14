@@ -4,6 +4,7 @@ import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -11,10 +12,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.function.Function;
 
-/**
- * Serviço responsável pela geração e validação de tokens JWT.
- * Utiliza HMAC-SHA256 para assinatura e informações de expiração configuráveis.
- */
+
 @Service
 public class JwtService {
 
@@ -25,15 +23,12 @@ public class JwtService {
     private long expirationMinutes;
 
     // ============================================================
-    // 🔹 GERAR TOKEN JWT (com username / e-mail)
+    // 🔹 GERAÇÃO DO TOKEN
     // ============================================================
     public String generateToken(String username) {
         return generateToken(Map.of(), username);
     }
 
-    // ============================================================
-    // 🔹 GERAR TOKEN JWT COM CLAIMS CUSTOMIZADAS
-    // ============================================================
     public String generateToken(Map<String, Object> extraClaims, String username) {
         Date now = new Date(System.currentTimeMillis());
         Date expiration = new Date(now.getTime() + expirationMinutes * 60 * 1000);
@@ -48,48 +43,17 @@ public class JwtService {
     }
 
     // ============================================================
-    // 🔹 EXTRAIR USERNAME (E-MAIL)
+    // 🔹 EXTRAÇÃO DE DADOS
     // ============================================================
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
-    // ============================================================
-    // 🔹 VALIDAR TOKEN COMPLETO (seguro e centralizado)
-    // ============================================================
-    public boolean isTokenValid(String token, String username) {
-        try {
-            final String subject = extractUsername(token);
-            return subject.equals(username) && !isTokenExpired(token);
-        } catch (ExpiredJwtException e) {
-            return false;
-        } catch (JwtException | IllegalArgumentException e) {
-            return false;
-        }
-    }
-
-    // ============================================================
-    // 🔹 VERIFICAR EXPIRAÇÃO
-    // ============================================================
-    private boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new Date());
-    }
-
-    private Date extractExpiration(String token) {
-        return extractClaim(token, Claims::getExpiration);
-    }
-
-    // ============================================================
-    // 🔹 EXTRAIR CLAIM GENÉRICA
-    // ============================================================
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
 
-    // ============================================================
-    // 🔹 PARSE E VALIDA A ASSINATURA DO TOKEN
-    // ============================================================
     private Claims extractAllClaims(String token) {
         try {
             return Jwts.parserBuilder()
@@ -104,28 +68,31 @@ public class JwtService {
         }
     }
 
-    // ============================================================
-    // 🔹 CHAVE DE ASSINATURA (Base64)
-    // ============================================================
+    private boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
+    }
+
+    private Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
+
     private Key getSignInKey() {
-        try {
-            byte[] keyBytes = Decoders.BASE64.decode(secretKey);
-            return Keys.hmacShaKeyFor(keyBytes);
-        } catch (Exception e) {
-            throw new IllegalStateException("Chave secreta JWT inválida ou mal configurada.");
-        }
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
     // ============================================================
-    // 🔹 OBTÉM TEMPO DE EXPIRAÇÃO (em segundos)
+    // ✅ NOVA VERSÃO — compatível com JwtAuthFilter
     // ============================================================
+    public boolean isTokenValid(String token, UserDetails userDetails) {
+        final String username = extractUsername(token);
+        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+    }
+
     public long getExpirationTime() {
         return expirationMinutes * 60;
     }
 
-    // ============================================================
-    // 🔹 VALIDAÇÃO RÁPIDA (para /auth/validate-token ou /refresh)
-    // ============================================================
     public boolean validateToken(String token) {
         try {
             extractAllClaims(token);

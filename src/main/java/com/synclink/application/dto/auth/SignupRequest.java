@@ -28,4 +28,36 @@ public class SignupRequest {
     @Schema(description = "Perfil do usuário", example = "GARCOM", allowableValues = {"ADMIN", "GERENTE", "GARCOM", "COZINHA", "CAIXA"})
     @NotBlank(message = "Perfil é obrigatório")
     private String perfil;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
+    }
 }

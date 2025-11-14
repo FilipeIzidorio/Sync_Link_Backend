@@ -37,15 +37,12 @@ public class AuthController {
     private final AuthService authService;
     private final AuthenticationManager authenticationManager;
 
-
     // ============================================================
     // 🔹 REGISTRO (SIGNUP)
     // ============================================================
     @PostMapping("/signup")
-    @Operation(
-            summary = "Cadastrar novo usuário",
-            description = "Cria um novo usuário no sistema e retorna um token JWT de autenticação."
-    )
+    @Operation(summary = "Cadastrar novo usuário",
+            description = "Cria um novo usuário no sistema e retorna um token JWT de autenticação.")
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Usuário cadastrado com sucesso"),
             @ApiResponse(responseCode = "400", description = "Dados inválidos"),
@@ -96,10 +93,8 @@ public class AuthController {
     // 🔹 LOGIN
     // ============================================================
     @PostMapping("/login")
-    @Operation(
-            summary = "Login de usuário",
-            description = "Autentica o usuário com e-mail e senha e retorna um token JWT válido."
-    )
+    @Operation(summary = "Login de usuário",
+            description = "Autentica o usuário com e-mail e senha e retorna um token JWT válido.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Login realizado com sucesso"),
             @ApiResponse(responseCode = "401", description = "Credenciais inválidas")
@@ -120,10 +115,8 @@ public class AuthController {
     // 🔹 USUÁRIO AUTENTICADO
     // ============================================================
     @GetMapping("/me")
-    @Operation(
-            summary = "Ver dados do usuário autenticado",
-            description = "Retorna as informações do usuário logado com base no token JWT enviado no cabeçalho Authorization."
-    )
+    @Operation(summary = "Ver dados do usuário autenticado",
+            description = "Retorna as informações do usuário logado com base no token JWT enviado no cabeçalho Authorization.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Usuário autenticado retornado com sucesso"),
             @ApiResponse(responseCode = "401", description = "Token inválido ou ausente")
@@ -156,13 +149,11 @@ public class AuthController {
     }
 
     // ============================================================
-    // 🔹 RENOVAÇÃO DE TOKEN (opcional)
+    // 🔹 RENOVAÇÃO DE TOKEN (REFRESH)
     // ============================================================
     @PostMapping("/refresh")
-    @Operation(
-            summary = "Renovar token JWT",
-            description = "Gera um novo token JWT válido com base no token atual, se ainda for válido."
-    )
+    @Operation(summary = "Renovar token JWT",
+            description = "Gera um novo token JWT válido com base no token atual, se ainda for válido.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Token renovado com sucesso"),
             @ApiResponse(responseCode = "401", description = "Token inválido ou expirado")
@@ -177,7 +168,11 @@ public class AuthController {
             String oldToken = authHeader.substring(7);
             String email = jwtService.extractUsername(oldToken);
 
-            if (!jwtService.isTokenValid(oldToken, email)) {
+            // ✅ Corrigido: compatível com JwtService que recebe UserDetails
+            Usuario usuario = usuarioRepository.findByEmail(email)
+                    .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
+
+            if (!jwtService.isTokenValid(oldToken, usuario)) {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                         .body(Map.of("erro", "Token expirado ou inválido."));
             }
